@@ -1,0 +1,57 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+--- a/CMakeLists.txt	(revision cff41b0bea94b346616887f10481f0aecc373319)
++++ b/CMakeLists.txt	(date 1742555865313)
+@@ -33,16 +33,42 @@
+ add_library(static_bsdiff bsdiff.c bsdiff.h bspatch.c bspatch.h)
+ set_target_properties(static_bsdiff PROPERTIES OUTPUT_NAME bsdiff)
+
+-if (BZIP2_FOUND)
+-  # Builds bsdiff.
+-  add_executable(bsdiff bsdiff.c bsdiff.h bsdiff_common.h)
+-  target_compile_definitions(bsdiff PRIVATE "BSDIFF_EXECUTABLE")
+-  target_include_directories(bsdiff PRIVATE ${BZIP2_INCLUDE_DIR})
+-  target_link_libraries(bsdiff ${BZIP2_LIBRARIES})
++option(BUILD_EXE OFF)
++if(BUILD_EXE)
++  if (BZIP2_FOUND)
++    # Builds bsdiff.
++    add_executable(bsdiff bsdiff.c bsdiff.h bsdiff_common.h)
++    target_compile_definitions(bsdiff PRIVATE "BSDIFF_EXECUTABLE")
++    target_include_directories(bsdiff PRIVATE ${BZIP2_INCLUDE_DIR})
++    target_link_libraries(bsdiff ${BZIP2_LIBRARIES})
+
+-  #Builds bspatch.
+-  add_executable(bspatch bspatch.c bspatch.h bsdiff_common.h)
+-  target_compile_definitions(bspatch PRIVATE "BSPATCH_EXECUTABLE")
+-  target_include_directories(bspatch PRIVATE ${BZIP2_INCLUDE_DIR})
+-  target_link_libraries(bspatch ${BZIP2_LIBRARIES})
++    #Builds bspatch.
++    add_executable(bspatch bspatch.c bspatch.h bsdiff_common.h)
++    target_compile_definitions(bspatch PRIVATE "BSPATCH_EXECUTABLE")
++    target_include_directories(bspatch PRIVATE ${BZIP2_INCLUDE_DIR})
++    target_link_libraries(bspatch ${BZIP2_LIBRARIES})
++  else()
++    message(FATAL_ERROR "BZIP2 not found")
++  endif()
+ endif()
++
++# Configure installation rules for static_bsdiff.
++install(
++        TARGETS static_bsdiff
++        EXPORT bsdiffTargets
++        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
++)
++
++install(
++        FILES bsdiff.h bspatch.h bsdiff_common.h DESTINATION include
++)
++
++target_include_directories(static_bsdiff INTERFACE
++        $<INSTALL_INTERFACE:include>
++)
++
++install(
++        EXPORT bsdiffTargets
++        DESTINATION ${CMAKE_INSTALL_PREFIX}/share/bsdiff-drake127
++        FILE bsdiff-config.cmake
++)

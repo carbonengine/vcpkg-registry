@@ -1,4 +1,8 @@
 {
   "default": {
+    "bsdiff-drake127": {
+      "baseline": "4.3.3",
+      "port-version": 0
+    }
   }
 }
