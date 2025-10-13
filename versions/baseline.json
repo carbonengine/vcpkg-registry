@@ -3,6 +3,10 @@
     "bsdiff-drake127": {
       "baseline": "4.3.3",
       "port-version": 0
+    },
+    "python3": {
+      "baseline": "3.12.3",
+      "port-version": 0
     }
   }
 }
