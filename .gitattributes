@@ -1,0 +1,5 @@
+# Categorize manifests as text. Allows automated formatting to handle line endings in a consistent manner.
+*.json text
+
+# Force lf line endings on index for files categorized as text
+text eol=lf
