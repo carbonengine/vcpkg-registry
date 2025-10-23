@@ -4,6 +4,10 @@
       "baseline": "4.3.3",
       "port-version": 0
     },
+    "carbon-resources": {
+      "baseline": "3.0.3",
+      "port-version": 0
+    },
     "python3": {
       "baseline": "3.12.3",
       "port-version": 0
