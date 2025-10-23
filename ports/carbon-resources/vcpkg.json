@@ -37,9 +37,6 @@
       "version>=": "2024-05-23"
     }
   ],
-  "default-features": [
-    "tests"
-  ],
   "features": {
     "tests": {
       "description": "Enable tests",

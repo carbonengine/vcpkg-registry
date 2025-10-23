@@ -11,6 +11,11 @@ vcpkg_check_features(OUT_FEATURE_OPTIONS RESOURCES_FEATURE_OPTIONS
         docs  BUILD_DOCUMENTATION
 )
 
+set(EXTRA_OPTIONS "")
+if("tests" IN_LIST FEATURES)
+    list(APPEND EXTRA_OPTIONS -DGTest_DIR=${VCPKG_INSTALLED_DIR}/${TARGET_TRIPLET}/share/gtest)
+endif()
+
 vcpkg_cmake_configure(
         SOURCE_PATH ${SOURCE_PATH}
         OPTIONS
@@ -18,7 +23,7 @@ vcpkg_cmake_configure(
             -DVCPKG_USE_HOST_TOOLS=ON
             -DVCPKG_HOST_TRIPLET=${HOST_TRIPLET}
             -DCMAKE_BUILD_TYPE=${CARBON_BUILD_TYPE}
-            -DGTest_DIR=${VCPKG_INSTALLED_DIR}/${TARGET_TRIPLET}/share/gtest
+            ${EXTRA_OPTIONS}
 )
 
 vcpkg_cmake_install()
