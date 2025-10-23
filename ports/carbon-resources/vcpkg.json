@@ -4,27 +4,19 @@
   "dependencies": [
     {
       "name": "argparse",
-      "version>=": "2.2#0"
+      "version>=": "2.2"
     },
     {
-      "name": "curl",
-      "version>=": "8.11.1#1"
+      "name": "bsdiff-drake127",
+      "version>=": "4.3.3"
     },
     {
       "name": "cryptopp",
       "version>=": "8.9.0#1"
     },
     {
-      "name": "yaml-cpp",
-      "version>=": "0.8.0#1"
-    },
-    {
-      "name": "zlib",
-      "version>=": "1.3.1"
-    },
-    {
-      "name": "bsdiff-drake127",
-      "version>=": "4.3.3"
+      "name": "curl",
+      "version>=": "8.11.1#1"
     },
     {
       "name": "vcpkg-cmake",
@@ -35,31 +27,39 @@
       "name": "vcpkg-cmake-config",
       "host": true,
       "version>=": "2024-05-23"
+    },
+    {
+      "name": "yaml-cpp",
+      "version>=": "0.8.0#1"
+    },
+    {
+      "name": "zlib",
+      "version>=": "1.3.1"
     }
   ],
   "features": {
-    "tests": {
-      "description": "Enable tests",
-      "dependencies": [
-        {
-          "name": "gtest",
-          "version>=": "1.15.2",
-          "host": true
-        },
-        {
-          "name": "tiny-process-library",
-          "version>=": "2.0.4#3",
-          "host": true
-        }
-      ]
-    },
     "docs": {
       "description": "Generate documentation",
       "dependencies": [
         {
           "name": "python3",
-          "version>=": "3.12.3",
-          "host": true
+          "host": true,
+          "version>=": "3.12.3"
+        }
+      ]
+    },
+    "tests": {
+      "description": "Enable tests",
+      "dependencies": [
+        {
+          "name": "gtest",
+          "host": true,
+          "version>=": "1.15.2"
+        },
+        {
+          "name": "tiny-process-library",
+          "host": true,
+          "version>=": "2.0.4#3"
         }
       ]
     }
@@ -67,7 +67,7 @@
   "overrides": [
     {
       "name": "argparse",
-      "version": "2.2#0"
+      "version": "2.2"
     }
   ]
 }
