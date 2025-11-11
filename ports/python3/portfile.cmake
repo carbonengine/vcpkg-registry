@@ -104,3 +104,13 @@ elseif(VCPKG_TARGET_IS_OSX)
 else()
     message(FATAL_ERROR "Unsupported platform")
 endif()
+
+# Get the license file from the github.com/ccpgames/cpython repo
+vcpkg_download_distfile(
+        LICENSE_PATH
+        URLS "https://raw.githubusercontent.com/ccpgames/cpython/main/LICENSE"
+        FILENAME "cpython_LICENSE"
+        SHA512 c05d0ce8e0f5a4c040db1d4acb12e308191a40c47de5ad3fa1e68fee3acdbf29bc360c2bfcdf9c7ef11eefc3e36d5950d02f3996ce2a7fe33699c49fe3b8ac36
+)
+
+vcpkg_install_copyright(FILE_LIST "${LICENSE_PATH}")
