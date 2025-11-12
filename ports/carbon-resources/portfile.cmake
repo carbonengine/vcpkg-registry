@@ -1,7 +1,7 @@
 vcpkg_from_git(
         OUT_SOURCE_PATH SOURCE_PATH
         URL git@github.com:carbonengine/resources.git
-        REF b222a4c82af34e8411e8bc1f5b5e17dac3dde571
+        REF 1d19710f05e3662bf9b7af864b9bbce706abee1c
         HEAD_REF main
 )
 
@@ -27,6 +27,11 @@ vcpkg_cmake_configure(
 )
 
 vcpkg_cmake_install()
+vcpkg_install_copyright(
+        FILE_LIST
+        "${SOURCE_PATH}/LICENSE.txt"
+        "${SOURCE_PATH}/NOTICE.md"
+)
 
 vcpkg_cmake_config_fixup()
 vcpkg_copy_pdbs()
