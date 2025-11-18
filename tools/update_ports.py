@@ -40,7 +40,7 @@ if __name__ == "__main__":
 
     if porcelain != "":
         print(f"format changes detected, creating formatting commit ...")
-        subprocess.run(["git", "commit", "-m 'Apply automated formatting'"], cwd=registry_root, capture_output=True, check=True)
+        subprocess.run(["git", "commit", "-m Apply automated formatting"], cwd=registry_root, capture_output=True, check=True)
         print(f"{OKCYAN_COLOUR}added changes to commit:\n{porcelain}{END_COLOUR}")
     else:
         print(f"no format changes detected")
