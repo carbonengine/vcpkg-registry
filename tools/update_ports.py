@@ -19,7 +19,7 @@ if __name__ == "__main__":
 
     vcpkg_tool = os.path.abspath(os.path.join(vcpkg_root, vcpkg_exe_filename))
     if not os.path.isfile(vcpkg_tool):
-        sys.exit(f"{FAIL_COLOUR}vcpkg executable not found at {vcpkg_tool}. Please check your VCPKG_ROOT environment variable.{END_COLOUR}")
+        sys.exit(f"{FAIL_COLOUR}vcpkg executable not found at {vcpkg_tool}. Please check your VCPKG_ROOT environment variable and make sure you have run the vcpkg bootstrap script.{END_COLOUR}")
 
     initial_git_status = subprocess.run(["git", "status", "--porcelain=v1"], capture_output=True, check=True, cwd=registry_root)
     if initial_git_status.stdout != b'':
