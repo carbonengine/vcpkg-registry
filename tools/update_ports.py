@@ -27,7 +27,7 @@ if __name__ == "__main__":
 
     print("formating all manifest files")
     try:
-        subprocess.run([vcpkg_tool, "format-manifest", "--all", f"--vcpkg-root={vcpkg_root}"], check=True, cwd=registry_root)
+        subprocess.run([vcpkg_tool, "format-manifest", "--all", f"--vcpkg-root={registry_root}"], check=True, cwd=registry_root)
     except subprocess.CalledProcessError as e:
         sys.exit(e.stderr)
 
