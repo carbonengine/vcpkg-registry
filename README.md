@@ -22,7 +22,7 @@ Please follow the steps below on how to set up the necessary pre-reqs:
   - On macOS/Linux: `export VCPKG_ROOT="/path/to/vcpkg"`
 
 ## How to change the registry
-- Run: `git clone -carbonengine git@github.com:carbonengine/vcpkg-registry.git`
+- Run: `git clone -o carbonengine git@github.com:carbonengine/vcpkg-registry.git`
 - Make changes to ports or add new ports as needed.
 - Make sure the version of Python you are using is 3.12 or higher.
 - Use the `tools/update_ports.py` script to update or add ports:
