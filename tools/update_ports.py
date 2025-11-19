@@ -7,29 +7,19 @@ END_COLOUR = '\033[0m'
 
 if __name__ == "__main__":
     registry_root = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-    vcpkg_submodule_path = os.path.join(registry_root, "vendor", "github.com", "microsoft", "vcpkg")
+
+    # Get VCPKG_ROOT from environment variable
+    vcpkg_root = os.environ.get("VCPKG_ROOT")
+    if not vcpkg_root:
+        sys.exit(f"{FAIL_COLOUR}VCPKG_ROOT environment variable is not set. Please set it to the location of the Microsoft vcpkg root directory.{END_COLOUR}")
+
     vcpkg_exe_filename = "vcpkg"
     if os.name == 'nt':
         vcpkg_exe_filename = "vcpkg.exe"
 
-    vcpkg_tool = os.path.abspath(os.path.join(vcpkg_submodule_path, vcpkg_exe_filename))
-
-    try:
-        print("updating submodules ...")
-        subprocess.run(["git", "submodule", "update", "--init"], capture_output=True, check=True, cwd=registry_root)
-        print(f"{OKCYAN_COLOUR}submodules updated successfully{END_COLOUR}")
-    except subprocess.CalledProcessError as e:
-        sys.exit()
-    print(vcpkg_tool)
+    vcpkg_tool = os.path.abspath(os.path.join(vcpkg_root, vcpkg_exe_filename))
     if not os.path.isfile(vcpkg_tool):
-        print(f"{OKCYAN_COLOUR}vcpkg executable not detected{END_COLOUR}")
-        script_suffix = ".sh"
-        if os.name == 'nt':
-            script_suffix = ".bat"
-
-        bootstrap_tool = "bootstrap-vcpkg" + script_suffix
-        print(f"running {bootstrap_tool} from {vcpkg_submodule_path} ...")
-        subprocess.run([os.path.join(vcpkg_submodule_path, bootstrap_tool)], cwd=vcpkg_submodule_path, check=True)
+        sys.exit(f"{FAIL_COLOUR}vcpkg executable not found at {vcpkg_tool}. Please check your VCPKG_ROOT environment variable and make sure you have run the vcpkg bootstrap script.{END_COLOUR}")
 
     initial_git_status = subprocess.run(["git", "status", "--porcelain=v1"], capture_output=True, check=True, cwd=registry_root)
     if initial_git_status.stdout != b'':
@@ -50,7 +40,7 @@ if __name__ == "__main__":
 
     if porcelain != "":
         print(f"format changes detected, creating formatting commit ...")
-        subprocess.run(["git", "commit", "-m 'Apply automated formatting'"], cwd=registry_root, capture_output=True, check=True)
+        subprocess.run(["git", "commit", "-m Apply automated formatting"], cwd=registry_root, capture_output=True, check=True)
         print(f"{OKCYAN_COLOUR}added changes to commit:\n{porcelain}{END_COLOUR}")
     else:
         print(f"no format changes detected")
@@ -63,7 +53,7 @@ if __name__ == "__main__":
             "x-add-version",
             "--all",
             "--verbose",
-            f"--vcpkg-root={vcpkg_submodule_path}"],
+            f"--vcpkg-root={vcpkg_root}"],
             cwd=registry_root,
             check=True
         )
