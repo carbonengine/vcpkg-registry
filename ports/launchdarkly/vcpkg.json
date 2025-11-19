@@ -1,0 +1,84 @@
+{
+    "name": "launchdarkly",
+    "version": "3.8.1",
+    "description": "C++ SDK for launchdarkly",
+    "dependencies": [
+        {
+            "name": "boost-asio",
+            "version>=": "1.89.0"
+        },
+        {
+            "name": "boost-beast",
+            "version>=": "1.89.0"
+        },
+        {
+            "name": "boost-coroutine",
+            "version>=": "1.89.0"
+        },
+        {
+            "name": "boost-date-time",
+            "version>=": "1.89.0"
+        },
+        {
+            "name": "boost-filesystem",
+            "version>=": "1.89.0"
+        },
+        {
+            "name": "boost-format",
+            "version>=": "1.89.0"
+        },
+        {
+            "name": "boost-hof",
+            "version>=": "1.89.0"
+        },
+        {
+            "name": "boost-json",
+            "version>=": "1.89.0"
+        },
+        {
+            "name": "boost-serialization",
+            "version>=": "1.89.0"
+        },
+        {
+            "name": "boost-signals2",
+            "version>=": "1.89.0"
+        },
+        {
+            "name": "boost-spirit",
+            "version>=": "1.89.0"
+        },
+        {
+            "name": "boost-test",
+            "version>=": "1.89.0"
+        },
+        {
+            "name": "boost-url",
+            "version>=": "1.89.0"
+        },
+        {
+            "name": "boost-uuid",
+            "version>=": "1.89.0"
+        },
+        {
+            "name": "ccp-debug-info",
+            "host": true,
+            "version>=": "1.0.1"
+        },
+        {
+            "name": "openssl",
+            "version>=": "1.1.1k#12"
+        },
+        {
+            "name": "pcre",
+            "version>=": "8.45#7"
+        },
+        {
+            "name": "vcpkg-cmake",
+            "host": true
+        },
+        {
+            "name": "vcpkg-cmake-config",
+            "host": true
+        }
+    ]
+}
