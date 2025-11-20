@@ -64,9 +64,7 @@
       "host": true,
       "version>=": "1.0.1"
     },
-    {
-      "name": "openssl"
-    },
+    "openssl",
     {
       "name": "pcre",
       "version>=": "8.45#7"
