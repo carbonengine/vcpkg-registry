@@ -1,0 +1,22 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 173a383a..4e68ad6b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -115,7 +115,7 @@ option(LD_CURL_NETWORKING "Enable CURL-based networking for SSE client (alternat
+ # If using 'make' as the build system, CMake causes the 'install' target to have a dependency on 'all', meaning
+ # it will cause a full build. This disables that, allowing us to build piecemeal instead. This is useful
+ # so that we only need to build the client or server for a given release (if only the client or server were affected.)
+-set(CMAKE_SKIP_INSTALL_ALL_DEPENDENCY true)
++# set(CMAKE_SKIP_INSTALL_ALL_DEPENDENCY false)
+ 
+ # All projects in this repo should share the same version of 3rd party depends.
+ # It's the only way to remain sane.
+@@ -127,7 +127,7 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+ include(GNUInstallDirs)
+ set(LD_TARGETS_EXPORT_NAME ${PROJECT_NAME}Targets)
+ set(LD_CMAKE_CONFIG_DIR "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+-set(LD_CONFIG_INSTALL_DIR "${CMAKE_INSTALL_DATADIR}/cmake/${PROJECT_NAME}")
++set(LD_CONFIG_INSTALL_DIR "${CMAKE_INSTALL_DATADIR}/${PROJECT_NAME}")
+ set(LD_CMAKE_PROJECT_CONFIG_FILE "${LD_CMAKE_CONFIG_DIR}/${PROJECT_NAME}Config.cmake")
+ set(LD_CMAKE_VERSION_CONFIG_FILE "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake")
+ 
