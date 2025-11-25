@@ -66,11 +66,11 @@
           "default-features": false
         },
         {
-          "name": "liblzma",
+          "name": "libffi",
           "default-features": false
         },
         {
-          "name": "libffi",
+          "name": "liblzma",
           "default-features": false
         },
         {
