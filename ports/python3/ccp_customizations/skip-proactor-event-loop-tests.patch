@@ -1,0 +1,24 @@
+diff --git a/Lib/test/test_asyncio/test_sock_lowlevel.py b/Lib/test/test_asyncio/test_sock_lowlevel.py
+--- a/Lib/test/test_asyncio/test_sock_lowlevel.py	(revision c5d1fbd4cef1f720b615d85b0814763ddbb7a0ee)
++++ b/Lib/test/test_asyncio/test_sock_lowlevel.py	(date 1717782748102)
+@@ -2,6 +2,7 @@
+ import asyncio
+ import sys
+ import unittest
++import os
+ 
+ from asyncio import proactor_events
+ from itertools import cycle, islice
+@@ -556,6 +557,12 @@
+             return asyncio.SelectorEventLoop()
+ 
+ 
++    @unittest.skipIf(
++        os.getenv("TEAMCITY_VERSION"),
++        "Tests assume WSARecvFrom will always report ERROR_PORT_UNREACHABLE when the socket "
++        "used for the receive was previously used to send to an address that is not listening. "
++        "This is not the case on our build agents, so the first receive after sending to an address "
++        "that wasn't listening would hang forever.")
+     class ProactorEventLoopTests(BaseSockTestsMixin,
+                                  test_utils.TestCase):
+ 
