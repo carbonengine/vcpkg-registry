@@ -1,0 +1,27 @@
+diff --git a/Lib/multiprocessing/spawn.py b/Lib/multiprocessing/spawn.py
+index 075f345547..cf6ed253a2 100644
+--- a/Lib/multiprocessing/spawn.py
++++ b/Lib/multiprocessing/spawn.py
+@@ -86,7 +86,20 @@ def get_command_line(**kwds):
+         prog = 'from multiprocessing.spawn import spawn_main; spawn_main(%s)'
+         prog %= ', '.join('%s=%r' % item for item in kwds.items())
+         opts = util._args_from_interpreter_flags()
+         exe = get_executable()
+-        return [exe] + opts + ['-c', prog, '--multiprocessing-fork']
++        # CCP addition, to get multiprocessing to work for exefile interpreter.
++        # We determine this by checking if `blue` can be imported (it is not built for a non-CCP python interpreter)
++        # Exefile interpreter needs the /py argument in order to run regular python scripts
++        # Additionally we need our environment setup correctly with the @args which we inherit from the parent proc
++        try:
++            import blue
++        except ImportError:
++            return [exe] + opts + ['-c', prog, '--multiprocessing-fork']
++        else:
++            blueargs = blue.os.GetStartupArgs()
++            if not blue.os.HasStartupArg('py'):
++                raise ImportError('Can only import multiprocessing when running in python interpreter mode')
++            blueargs = blueargs[:blueargs.index('/py') + 1]
++            return blueargs + opts + ['-c', prog, '--multiprocessing-fork']
+ 
+ 
+ def spawn_main(pipe_handle, parent_pid=None, tracker_fd=None):

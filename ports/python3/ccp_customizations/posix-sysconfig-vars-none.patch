@@ -1,0 +1,26 @@
+diff --git a/Lib/sysconfig.py b/Lib/sysconfig.py
+index 122d441bd1..e1a8797236 100644
+--- a/Lib/sysconfig.py
++++ b/Lib/sysconfig.py
+@@ -533,7 +533,20 @@ def _init_posix(vars):
+     """Initialize the module as appropriate for POSIX systems."""
+     # _sysconfigdata is generated at build time, see _generate_posix_vars()
+     name = _get_sysconfigdata_name()
+-    _temp = __import__(name, globals(), locals(), ['build_time_vars'], 0)
++    try:
++        _temp = __import__(name, globals(), locals(), ['build_time_vars'], 0)
++    except ImportError:
++        # CCP Python Customization
++        #
++        # The sysconfig module provides information about the Python build configuration.
++        # This gets done by importing a Python file that gets generated at buildtime.
++        # This generated Python file contains one variable called build_time_vars, which is a dict,
++        # and provides a bunch of build specific information which we don't really need,
++        # and might change frequently between builds, so we don't want to publish it to Perforce.
++        # However, we have some nonessential code that calls `sysconfig.get_config_vars()` and expects a result.
++        # Since without the generated Python file this call results in an `ImportError`,
++        # we make the function that loads these variables into a no-op.
++        return
+     build_time_vars = _temp.build_time_vars
+     vars.update(build_time_vars)
+ 
