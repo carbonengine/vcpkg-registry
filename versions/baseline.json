@@ -14,7 +14,7 @@
     },
     "gettext-libintl": {
       "baseline": "0.22.5",
-      "port-version": 0
+      "port-version": 1
     },
     "launchdarkly": {
       "baseline": "3.8.1",
@@ -22,7 +22,7 @@
     },
     "libffi": {
       "baseline": "3.4.7",
-      "port-version": 0
+      "port-version": 1
     },
     "python3": {
       "baseline": "3.12.9",
