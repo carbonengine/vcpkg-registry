@@ -12,6 +12,10 @@
       "baseline": "3.1.2",
       "port-version": 0
     },
+    "ccp-debug-info": {
+      "baseline": "1.0.1",
+      "port-version": 0
+    },
     "gettext-libintl": {
       "baseline": "0.22.5",
       "port-version": 1
