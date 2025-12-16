@@ -1,0 +1,75 @@
+{
+  "name": "carbon",
+  "version": "0.1",
+  "description": "CCP Games' Carbon development platform.",
+  "homepage": "https://www.ccpgames.com/carbon",
+  "license": "MIT",
+  "supports": "(windows & x64) | osx",
+  "dependencies": [
+    {
+      "name": "carbon-blue",
+      "version>=": "4.1.6"
+    },
+    {
+      "name": "carbon-blueexposure",
+      "version>=": "2.0.4"
+    },
+    {
+      "name": "carbon-core",
+      "version>=": "2.3.2"
+    },
+    {
+      "name": "carbon-db",
+      "version>=": "2.1.1",
+      "platform": "(windows & x64)"
+    },
+    {
+      "name": "carbon-destiny",
+      "version>=": "3.0.1"
+    },
+    {
+      "name": "carbon-exefile",
+      "version>=": "4.0.3"
+    },
+    {
+      "name": "carbon-exefile-interpreter",
+      "version>=": "1.0.2"
+    },
+    {
+      "name": "carbon-geo2",
+      "version>=": "2.0.3"
+    },
+    {
+      "name": "carbon-io",
+      "version>=": "1.2.3"
+    },
+    {
+      "name": "carbon-localization",
+      "version>=": "2.1.3"
+    },
+    {
+      "name": "carbon-math",
+      "version>=": "1.1.4"
+    },
+    {
+      "name": "carbon-pathfinder",
+      "version>=": "2.2.1"
+    },
+    {
+      "name": "carbon-pdm",
+      "version>=": "2.1.6"
+    },
+    {
+      "name": "carbon-pdmprotowrapper",
+      "version>=": "2.0.3"
+    },
+    {
+      "name": "carbon-prometheus",
+      "version>=": "4.0.0"
+    },
+    {
+      "name": "carbon-scheduler",
+      "version>=": "1.3.3"
+    }
+  ]
+}
