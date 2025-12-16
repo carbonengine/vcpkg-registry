@@ -20,8 +20,8 @@
     },
     {
       "name": "carbon-db",
-      "version>=": "2.1.1",
-      "platform": "(windows & x64)"
+      "platform": "windows & x64",
+      "version>=": "2.1.1"
     },
     {
       "name": "carbon-destiny",
