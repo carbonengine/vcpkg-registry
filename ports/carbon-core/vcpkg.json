@@ -3,6 +3,8 @@
   "version": "2.4.0",
   "description": "Carbon core library",
   "license": "MIT",
+  "supports": "(windows & x64) | osx",
+  "homepage": "https://github.com/carbonengine/core",
   "dependencies": [
     {
       "name": "ccp-debug-info",
