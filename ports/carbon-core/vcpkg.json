@@ -2,6 +2,7 @@
   "name": "carbon-core",
   "version": "2.4.0",
   "description": "Carbon core library",
+  "license": "MIT",
   "dependencies": [
     {
       "name": "ccp-debug-info",
