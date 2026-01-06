@@ -1,7 +1,7 @@
 {
   "name": "carbon-core",
   "version": "2.4.0",
-  "description": "Carbon core library",
+  "description": "Provides generic low-level functionality and cross-platform abstractions for system calls",
   "license": "MIT",
   "supports": "(windows & x64) | osx",
   "homepage": "https://github.com/carbonengine/core",
