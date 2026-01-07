@@ -1,0 +1,149 @@
+{
+  "name": "tracy",
+  "version": "0.11.1",
+  "description": "A real time, nanosecond resolution, remote telemetry, hybrid frame and sampling profiler for games and other applications.",
+  "homepage": "https://github.com/wolfpld/tracy",
+  "license": "BSD-3-Clause",
+  "supports": "!(windows & (arm | uwp))",
+  "dependencies": [
+    {
+      "name": "pthreads",
+      "platform": "!windows"
+    },
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true
+    }
+  ],
+  "default-features": [
+    "crash-handler"
+  ],
+  "features": {
+    "cli-tools": {
+      "description": "Build Tracy command-line tools: `capture`, `csvexport`, `import-chrome`, `import-fuchsia` and `update`",
+      "supports": "!(windows & x86)",
+      "dependencies": [
+        {
+          "name": "capstone",
+          "features": [
+            "arm",
+            "arm64",
+            "x86"
+          ]
+        },
+        {
+          "name": "dbus",
+          "default-features": false,
+          "platform": "!windows"
+        },
+        "freetype",
+        "glfw3",
+        {
+          "name": "tbb",
+          "platform": "!windows"
+        }
+      ]
+    },
+    "crash-handler": {
+      "description": "Enable crash handler"
+    },
+    "delayed-init": {
+      "description": "Enable delayed initialization of the library (init on first call)"
+    },
+    "fibers": {
+      "description": "Enable fibers support"
+    },
+    "gui-tools": {
+      "description": "Build Tracy GUI tool: `profiler` (aka `Tracy` executable)",
+      "supports": "!(windows & x86)",
+      "dependencies": [
+        {
+          "name": "capstone",
+          "features": [
+            "arm",
+            "arm64",
+            "x86"
+          ]
+        },
+        {
+          "name": "dbus",
+          "default-features": false,
+          "platform": "!windows"
+        },
+        "freetype",
+        "glfw3",
+        {
+          "name": "tbb",
+          "platform": "!windows"
+        }
+      ]
+    },
+    "libbacktrace-elf-dynload-support": {
+      "description": "Enable libbacktrace to support dynamically loaded elfs in symbol resolution resolution after the first symbol resolve operation"
+    },
+    "libunwind-backtrace": {
+      "description": "Use libunwind backtracing where supported"
+    },
+    "manual-lifetime": {
+      "description": "Enable the manual lifetime management of the profile"
+    },
+    "no-broadcast": {
+      "description": "Disable client discovery by broadcast to local network"
+    },
+    "no-callstack": {
+      "description": "Disable all callstack related functionality"
+    },
+    "no-callstack-inlines": {
+      "description": "Disables the inline functions in callstacks"
+    },
+    "no-code-transfer": {
+      "description": "Disable collection of source code"
+    },
+    "no-context-switch": {
+      "description": "Disable capture of context switches"
+    },
+    "no-exit": {
+      "description": "Client executable does not exit until all profile data is sent to server"
+    },
+    "no-frame-image": {
+      "description": "Disable the frame image support and its thread"
+    },
+    "no-sampling": {
+      "description": "Disable call stack sampling"
+    },
+    "no-system-tracing": {
+      "description": "Disable systrace sampling"
+    },
+    "no-verify": {
+      "description": "Disable zone validation for C API"
+    },
+    "no-vsync-capture": {
+      "description": "Disable capture of hardware Vsync events"
+    },
+    "on-demand": {
+      "description": "Enable on-demand profiling"
+    },
+    "only-ipv4": {
+      "description": "Tracy will only accept connections on IPv4 addresses (disable IPv6)"
+    },
+    "only-localhost": {
+      "description": "Only listen on the localhost interface"
+    },
+    "patchable-nopsleds": {
+      "description": "Enable nopsleds for efficient patching by system-level tools (e.g. rr)"
+    },
+    "symbol-offline-resolve": {
+      "description": "Instead of full runtime symbol resolution, only resolve the image path and offset to enable offline symbol resolution"
+    },
+    "timer-fallback": {
+      "description": "Use lower resolution timers"
+    },
+    "verbose": {
+      "description": "Enables verbose logging"
+    }
+  }
+}
