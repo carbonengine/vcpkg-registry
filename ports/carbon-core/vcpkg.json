@@ -1,0 +1,46 @@
+{
+  "name": "carbon-core",
+  "version": "2.4.0",
+  "description": "Provides generic low-level functionality and cross-platform abstractions for system calls",
+  "homepage": "https://github.com/carbonengine/core",
+  "license": "MIT",
+  "supports": "(windows & x64) | osx",
+  "dependencies": [
+    {
+      "name": "ccp-debug-info",
+      "host": true,
+      "version>=": "1.0.1"
+    },
+    {
+      "name": "tracy",
+      "features": [
+        "delayed-init",
+        "fibers",
+        "manual-lifetime",
+        "no-callstack",
+        "on-demand"
+      ],
+      "version>=": "0.11.1"
+    },
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true
+    }
+  ],
+  "features": {
+    "documentation": {
+      "description": "Build Doxygen & Sphinx documentation",
+      "dependencies": [
+        {
+          "name": "python3",
+          "host": true,
+          "version>=": "3.12.9"
+        }
+      ]
+    }
+  }
+}
