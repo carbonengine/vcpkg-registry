@@ -2,9 +2,9 @@
   "name": "carbon-core",
   "version": "2.4.0",
   "description": "Provides generic low-level functionality and cross-platform abstractions for system calls",
+  "homepage": "https://github.com/carbonengine/core",
   "license": "MIT",
   "supports": "(windows & x64) | osx",
-  "homepage": "https://github.com/carbonengine/core",
   "dependencies": [
     {
       "name": "ccp-debug-info",
