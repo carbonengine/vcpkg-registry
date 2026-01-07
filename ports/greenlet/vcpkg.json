@@ -2,8 +2,8 @@
   "name": "greenlet",
   "version": "3.0.3",
   "description": "Greenlets are lightweight coroutines for in-process concurrent programming.",
-  "license": "PSF-2.0",
   "homepage": "https://github.com/python-greenlet/greenlet",
+  "license": "PSF-2.0",
   "dependencies": [
     {
       "name": "ccp-debug-info",
