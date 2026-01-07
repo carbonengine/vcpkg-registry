@@ -138,7 +138,7 @@ if(VCPKG_TARGET_IS_WINDOWS)
             "/p:IncludeCTypes=true"
             "/p:IncludeSSL=true"
             "/p:IncludeTkinter=false"
-            "/p:IncludeTests=false"
+            "/p:IncludeTests=true"
             "/p:ForceImportBeforeCppTargets=${SOURCE_PATH}/PCbuild/python_vcpkg.props"
         )
     else()
