@@ -1,0 +1,163 @@
+diff --git a/src/greenlet/tests/__init__.py b/src/greenlet/tests/__init__.py
+index e249e35..b4d88be 100644
+--- a/src/greenlet/tests/__init__.py
++++ b/src/greenlet/tests/__init__.py
+@@ -21,8 +21,8 @@ import psutil
+ from greenlet import greenlet as RawGreenlet
+ from greenlet import getcurrent
+ 
+-from greenlet._greenlet import get_pending_cleanup_count
+-from greenlet._greenlet import get_total_main_greenlets
++from _greenlet import get_pending_cleanup_count
++from _greenlet import get_total_main_greenlets
+ 
+ from . import leakcheck
+ 
+diff --git a/src/greenlet/tests/fail_slp_switch.py b/src/greenlet/tests/fail_slp_switch.py
+index 0990526..ef905a4 100644
+--- a/src/greenlet/tests/fail_slp_switch.py
++++ b/src/greenlet/tests/fail_slp_switch.py
+@@ -6,6 +6,7 @@ fails.
+ # pragma: no cover
+ 
+ import greenlet
++import _greenlet as _greenlet
+ 
+ 
+ print('fail_slp_switch is running', flush=True)
+@@ -18,7 +19,7 @@ def func():
+     greenlet.getcurrent().parent.switch()
+     runs.append(3)
+ 
+-g = greenlet._greenlet.UnswitchableGreenlet(func)
++g = _greenlet.UnswitchableGreenlet(func)
+ g.switch()
+ assert runs == [1]
+ g.switch()
+diff --git a/src/greenlet/tests/test_greenlet.py b/src/greenlet/tests/test_greenlet.py
+index 51849cd..78e371b 100644
+--- a/src/greenlet/tests/test_greenlet.py
++++ b/src/greenlet/tests/test_greenlet.py
+@@ -13,6 +13,7 @@ import greenlet
+ from greenlet import greenlet as RawGreenlet
+ from . import TestCase
+ from .leakcheck import fails_leakcheck
++import _greenlet as _greenlet
+ 
+ 
+ # We manually manage locks in many tests
+@@ -1206,7 +1207,7 @@ class TestBrokenGreenlets(TestCase):
+             raise AssertionError("Never get here")
+ 
+ 
+-        g = greenlet._greenlet.UnswitchableGreenlet(func)
++        g = _greenlet.UnswitchableGreenlet(func)
+         g.force_switch_error = True
+ 
+         with self.assertRaisesRegex(SystemError,
+@@ -1222,7 +1223,7 @@ class TestBrokenGreenlets(TestCase):
+             greenlet.getcurrent().parent.switch()
+             runs.append(3) # pragma: no cover
+ 
+-        g = greenlet._greenlet.UnswitchableGreenlet(func)
++        g = _greenlet.UnswitchableGreenlet(func)
+         g.switch()
+         self.assertEqual(runs, [1])
+         g.switch()
+diff --git a/src/greenlet/tests/test_greenlet_trash.py b/src/greenlet/tests/test_greenlet_trash.py
+index 8d9716e..786ceac 100644
+--- a/src/greenlet/tests/test_greenlet_trash.py
++++ b/src/greenlet/tests/test_greenlet_trash.py
+@@ -39,7 +39,7 @@ class TestTrashCanReEnter(unittest.TestCase):
+ 
+     def check_it(self): # pylint:disable=too-many-statements
+         import greenlet
+-        from greenlet._greenlet import get_tstate_trash_delete_nesting # pylint:disable=no-name-in-module
++        from _greenlet import get_tstate_trash_delete_nesting # pylint:disable=no-name-in-module
+ 
+         main = greenlet.getcurrent()
+ 
+diff --git a/src/greenlet/tests/test_leaks.py b/src/greenlet/tests/test_leaks.py
+index ed1fa71..59ef052 100644
+--- a/src/greenlet/tests/test_leaks.py
++++ b/src/greenlet/tests/test_leaks.py
+@@ -13,6 +13,7 @@ import threading
+ 
+ 
+ import greenlet
++import _greenlet as _greenlet
+ from . import TestCase
+ from .leakcheck import fails_leakcheck
+ from .leakcheck import ignores_leakcheck
+@@ -117,13 +118,13 @@ class TestLeaks(TestCase):
+             self.assertIsNone(g())
+ 
+     def assertClocksUsed(self):
+-        used = greenlet._greenlet.get_clocks_used_doing_optional_cleanup()
++        used = _greenlet.get_clocks_used_doing_optional_cleanup()
+         self.assertGreaterEqual(used, 0)
+         # we don't lose the value
+-        greenlet._greenlet.enable_optional_cleanup(True)
+-        used2 = greenlet._greenlet.get_clocks_used_doing_optional_cleanup()
++        _greenlet.enable_optional_cleanup(True)
++        used2 = _greenlet.get_clocks_used_doing_optional_cleanup()
+         self.assertEqual(used, used2)
+-        self.assertGreater(greenlet._greenlet.CLOCKS_PER_SEC, 1)
++        self.assertGreater(_greenlet.CLOCKS_PER_SEC, 1)
+ 
+     def _check_issue251(self,
+                         manually_collect_background=True,
+@@ -159,7 +160,7 @@ class TestLeaks(TestCase):
+         def background_greenlet():
+             # Throw control back to the main greenlet.
+             jd = HasFinalizerTracksInstances("DELETING STACK OBJECT")
+-            greenlet._greenlet.set_thread_local(
++            _greenlet.set_thread_local(
+                 'test_leaks_key',
+                 HasFinalizerTracksInstances("DELETING THREAD STATE"))
+             # Explicitly keeping 'switch' in a local variable
+@@ -226,7 +227,7 @@ class TestLeaks(TestCase):
+         # can't reach to clean up. The C code goes through terrific
+         # lengths to clean that up.
+         if not explicit_reference_to_switch \
+-           and greenlet._greenlet.get_clocks_used_doing_optional_cleanup() is not None:
++           and _greenlet.get_clocks_used_doing_optional_cleanup() is not None:
+             # If cleanup was disabled, though, we may not find it.
+             self.assertEqual(greenlets_after, greenlets_before)
+             if manually_collect_background:
+@@ -248,18 +249,18 @@ class TestLeaks(TestCase):
+             # done by leakcheck will find it.
+             pass
+ 
+-        if greenlet._greenlet.get_clocks_used_doing_optional_cleanup() is not None:
++        if _greenlet.get_clocks_used_doing_optional_cleanup() is not None:
+             self.assertClocksUsed()
+ 
+     def test_issue251_killing_cross_thread_leaks_list(self):
+         self._check_issue251()
+ 
+     def test_issue251_with_cleanup_disabled(self):
+-        greenlet._greenlet.enable_optional_cleanup(False)
++        _greenlet.enable_optional_cleanup(False)
+         try:
+             self._check_issue251()
+         finally:
+-            greenlet._greenlet.enable_optional_cleanup(True)
++            _greenlet.enable_optional_cleanup(True)
+ 
+     @fails_leakcheck
+     def test_issue251_issue252_need_to_collect_in_background(self):
+@@ -285,11 +286,11 @@ class TestLeaks(TestCase):
+     @fails_leakcheck
+     def test_issue251_issue252_need_to_collect_in_background_cleanup_disabled(self):
+         self.expect_greenlet_leak = True
+-        greenlet._greenlet.enable_optional_cleanup(False)
++        _greenlet.enable_optional_cleanup(False)
+         try:
+             self._check_issue251(manually_collect_background=False)
+         finally:
+-            greenlet._greenlet.enable_optional_cleanup(True)
++            _greenlet.enable_optional_cleanup(True)
+ 
+     @fails_leakcheck
+     def test_issue251_issue252_explicit_reference_not_collectable(self):

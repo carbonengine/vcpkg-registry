@@ -1,0 +1,26 @@
+{
+  "name": "greenlet",
+  "version": "3.0.3",
+  "description": "Greenlets are lightweight coroutines for in-process concurrent programming.",
+  "homepage": "https://github.com/python-greenlet/greenlet",
+  "license": "PSF-2.0",
+  "dependencies": [
+    {
+      "name": "ccp-debug-info",
+      "host": true,
+      "version>=": "1.0.1"
+    },
+    {
+      "name": "python3",
+      "version>=": "3.12.9#1"
+    },
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true
+    }
+  ]
+}
