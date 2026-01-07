@@ -1,0 +1,52 @@
+diff --git a/src/greenlet/tests/fail_cpp_exception.py b/src/greenlet/tests/fail_cpp_exception.py
+index fa4dc2e..3f657fc 100644
+--- a/src/greenlet/tests/fail_cpp_exception.py
++++ b/src/greenlet/tests/fail_cpp_exception.py
+@@ -6,7 +6,7 @@ Takes one argument, the name of the function in :mod:`_test_extension_cpp` to ca
+ """
+ import sys
+ import greenlet
+-from greenlet.tests import _test_extension_cpp
++import _test_extension_cpp
+ print('fail_cpp_exception is running')
+ 
+ def run_unhandled_exception_in_greenlet_aborts():
+diff --git a/src/greenlet/tests/test_cpp.py b/src/greenlet/tests/test_cpp.py
+index 2d0cc9c..e5e25b8 100644
+--- a/src/greenlet/tests/test_cpp.py
++++ b/src/greenlet/tests/test_cpp.py
+@@ -5,7 +5,7 @@ import subprocess
+ import unittest
+ 
+ import greenlet
+-from . import _test_extension_cpp
++import _test_extension_cpp
+ from . import TestCase
+ from . import WIN
+ 
+diff --git a/src/greenlet/tests/test_extension_interface.py b/src/greenlet/tests/test_extension_interface.py
+index 34b6656..cfc8cf1 100644
+--- a/src/greenlet/tests/test_extension_interface.py
++++ b/src/greenlet/tests/test_extension_interface.py
+@@ -4,7 +4,7 @@ from __future__ import absolute_import
+ import sys
+ 
+ import greenlet
+-from . import _test_extension
++import _test_extension
+ from . import TestCase
+ 
+ # pylint:disable=c-extension-no-member
+diff --git a/src/greenlet/tests/test_greenlet.py b/src/greenlet/tests/test_greenlet.py
+index 51849cd..8d1bee9 100644
+--- a/src/greenlet/tests/test_greenlet.py
++++ b/src/greenlet/tests/test_greenlet.py
+@@ -876,7 +876,7 @@ class TestGreenlet(TestCase):
+ 
+     def test_get_stack_with_nested_c_calls(self):
+         from functools import partial
+-        from . import _test_extension_cpp
++        import _test_extension_cpp
+ 
+         def recurse(v):
+             if v > 0:
