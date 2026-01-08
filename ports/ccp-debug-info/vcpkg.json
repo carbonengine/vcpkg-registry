@@ -1,4 +1,5 @@
 {
   "name": "ccp-debug-info",
-  "version": "1.0.1"
+  "version": "1.0.1",
+  "license": "MIT"
 }

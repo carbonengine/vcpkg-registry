@@ -1,3 +1,4 @@
+# Copyright © 2025 CCP ehf.
 function(ccp_externalize_apple_debuginfo)
     if(NOT VCPKG_TARGET_IS_OSX)
         return()
