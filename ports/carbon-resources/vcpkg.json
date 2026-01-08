@@ -1,6 +1,9 @@
 {
   "name": "carbon-resources",
   "version": "3.1.2",
+  "port-version": 1,
+  "homepage": "https://github.com/carbonengine/resources",
+  "license": "MIT",
   "dependencies": [
     {
       "name": "argparse",
