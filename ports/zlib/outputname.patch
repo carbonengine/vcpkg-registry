@@ -1,0 +1,20 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 38885089..a30e6053 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1372,13 +1372,13 @@ if(WIN32)
+     # Static library
+     if(NOT DEFINED BUILD_SHARED_LIBS)
+         if(MSVC)
+-            set_target_properties(zlibstatic PROPERTIES OUTPUT_NAME zlibstatic${SUFFIX})
++            set_target_properties(zlibstatic PROPERTIES OUTPUT_NAME zlib${SUFFIX})
+         else()
+             set_target_properties(zlibstatic PROPERTIES OUTPUT_NAME z${SUFFIX})
+         endif()
+     elseif(NOT BUILD_SHARED_LIBS)
+         if(MSVC)
+-            set_target_properties(zlib PROPERTIES OUTPUT_NAME zlibstatic${SUFFIX})
++            set_target_properties(zlib PROPERTIES OUTPUT_NAME zlib${SUFFIX})
+         else()
+             set_target_properties(zlib PROPERTIES OUTPUT_NAME z${SUFFIX})
+         endif()

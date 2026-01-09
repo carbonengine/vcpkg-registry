@@ -1,0 +1,35 @@
+# Compute the installation prefix relative to this file.
+get_filename_component(_IMPORT_PREFIX "${CMAKE_CURRENT_LIST_FILE}" PATH)
+get_filename_component(_IMPORT_PREFIX "${_IMPORT_PREFIX}" PATH)
+get_filename_component(_IMPORT_PREFIX "${_IMPORT_PREFIX}" PATH)
+if(_IMPORT_PREFIX STREQUAL "/")
+  set(_IMPORT_PREFIX "")
+endif()
+
+add_library(crashpad INTERFACE)
+add_library(crashpad::crashpad ALIAS crashpad)
+
+add_executable(crashpad::handler IMPORTED GLOBAL)
+
+set(CRASHPAD_LIBRARIES client util base)
+
+if(WIN32)
+  set_target_properties(crashpad::handler PROPERTIES IMPORTED_LOCATION ${_IMPORT_PREFIX}/tools/crashpad_handler.exe)
+	target_compile_definitions(crashpad INTERFACE NOMINMAX)
+elseif(APPLE)
+  set_target_properties(crashpad::crashpad_handler PROPERTIES IMPORTED_LOCATION ${_IMPORT_PREFIX}/tools/crashpad_handler)
+	list(APPEND CRASHPAD_LIBRARIES ApplicationServices
+        CoreFoundation Foundation IOKit Security bsm mig_output)
+endif()
+
+foreach(LIB_NAME ${CRASHPAD_LIBRARIES})
+  find_library(_LIB ${LIB_NAME})
+  target_link_libraries(crashpad INTERFACE ${_LIB})
+  unset(_LIB CACHE)
+endforeach()
+
+find_package(ZLIB REQUIRED)
+target_link_libraries(crashpad INTERFACE ZLIB::ZLIB)
+
+target_include_directories(crashpad 
+        INTERFACE ${_IMPORT_PREFIX}/include/crashpad)
