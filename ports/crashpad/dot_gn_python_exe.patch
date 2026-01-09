@@ -1,0 +1,9 @@
+diff --git a/.gn b/.gn
+index d447a553..e4dc49c3 100644
+--- a/.gn
++++ b/.gn
+@@ -13,3 +13,4 @@
+ # limitations under the License.
+ 
+ buildconfig = "//build/BUILDCONFIG.gn"
++script_executable = "python3"
