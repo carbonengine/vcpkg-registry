@@ -17,7 +17,7 @@ if(WIN32)
   set_target_properties(crashpad::handler PROPERTIES IMPORTED_LOCATION ${_IMPORT_PREFIX}/tools/crashpad_handler.exe)
 	target_compile_definitions(crashpad INTERFACE NOMINMAX)
 elseif(APPLE)
-  set_target_properties(crashpad::crashpad_handler PROPERTIES IMPORTED_LOCATION ${_IMPORT_PREFIX}/tools/crashpad_handler)
+  set_target_properties(crashpad::handler PROPERTIES IMPORTED_LOCATION ${_IMPORT_PREFIX}/tools/crashpad_handler)
 	list(APPEND CRASHPAD_LIBRARIES ApplicationServices
         CoreFoundation Foundation IOKit Security bsm mig_output)
 endif()

@@ -22,7 +22,7 @@
     },
     "crashpad": {
       "baseline": "2021-04-14",
-      "port-version": 0
+      "port-version": 1
     },
     "gettext-libintl": {
       "baseline": "0.22.5",
