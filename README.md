@@ -11,3 +11,12 @@ This registry is intended to be used in addition to the [official Microsoft vcpk
   - The utility expects that `VCPKG_ROOT` [has been set up correctly](https://learn.microsoft.com/en-us/vcpkg/get_started/get-started-packaging?pivots=shell-bash#2---configure-the-vcpkg_root-environment-variable).
 - Open a PR from your branch onto main.
 
+## Custom toolchains and triplets
+
+This registry provides a set of custom vcpkg triplets and toolchains. These are to ensure that all Carbon components are
+compiled correctly for supported target platforms, and build configurations.
+
+One thing that may seem odd about the custom toolchains is that they are split in two files, one suffixed with `-carbon` 
+and the other with `-triplet`. This split is done to avoid unnecessarily including vcpkg's very own platform-specific
+toolchain files when building a component as a top-level project. At the time of this writing, such an include would be
+unproblematic, but it does introduce a possible failure point that can strike at inopportune moments.
