@@ -14,7 +14,8 @@ set(VCPKG_LOAD_VCVARS_ENV ON)
 set(CARBON_BUILD_TYPE "Release")
 
 if (PORT MATCHES "carbon-.*")
-    set(VCPKG_CHAINLOAD_TOOLCHAIN_FILE "${CMAKE_CURRENT_LIST_DIR}/../toolchains/x64-windows-carbon.cmake")
+    set(VCPKG_CHAINLOAD_TOOLCHAIN_FILE "${CMAKE_CURRENT_LIST_DIR}/../toolchains/x64-windows-triplet.cmake")
+    set(VCPKG_HASH_ADDITIONAL_FILES "${CMAKE_CURRENT_LIST_DIR}/../toolchains/x64-windows-carbon.cmake")
 endif ()
 
 if (PORT MATCHES "libyaml")

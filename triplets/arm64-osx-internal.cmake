@@ -13,7 +13,8 @@ set(VCPKG_ENV_PASSTHROUGH_UNTRACKED VCPKG_ROOT)
 set(CARBON_BUILD_TYPE "Internal")
 
 if (PORT MATCHES "carbon-.*")
-    set(VCPKG_CHAINLOAD_TOOLCHAIN_FILE "${CMAKE_CURRENT_LIST_DIR}/../toolchains/arm64-osx-carbon.cmake")
+    set(VCPKG_CHAINLOAD_TOOLCHAIN_FILE "${CMAKE_CURRENT_LIST_DIR}/../toolchains/arm64-osx-triplet.cmake")
+    set(VCPKG_HASH_ADDITIONAL_FILES "${CMAKE_CURRENT_LIST_DIR}/../toolchains/arm64-osx-carbon.cmake")
 endif ()
 
 if (PORT MATCHES "libyaml")

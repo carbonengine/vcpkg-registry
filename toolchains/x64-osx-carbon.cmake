@@ -2,8 +2,6 @@
 if (NOT _CCP_TOOLCHAIN_FILE_LOADED)
     set(_CCP_TOOLCHAIN_FILE_LOADED 1)
 
-    include($ENV{VCPKG_ROOT}/scripts/toolchains/osx.cmake)
-
     set (VCPKG_USE_HOST_TOOLS ON CACHE STRING "")
     set (CMAKE_CXX_STANDARD 17 CACHE STRING "")
     set (CMAKE_CXX_STANDARD_REQUIRED ON CACHE STRING "")
@@ -50,5 +48,9 @@ if (NOT _CCP_TOOLCHAIN_FILE_LOADED)
     # Manually add debug symbols to builds
     add_compile_options(-g)
 
-    set(MATH_OPTIMIZE_FLAG -ffast-math -ffp-model=fast)
+    if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS "13")
+        set(MATH_OPTIMIZE_FLAG -ffast-math -fhonor-infinities -fhonor-nans)
+    else()
+        set(MATH_OPTIMIZE_FLAG -ffast-math -ffp-model=fast -fhonor-infinities -fhonor-nans)
+    endif()
 endif ()
