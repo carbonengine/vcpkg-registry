@@ -22,7 +22,7 @@ else()
     message(FATAL_ERROR "Greenlet not supported on platform.")
 endif()
 
-define_property(TARGET PROPERTY PYTHON_MODULE_DIR BRIEF_DOCS "path to the python module ")
+define_property(TARGET PROPERTY PYTHON_MODULE_DIR BRIEF_DOCS "path to the python module")
 
 set_target_properties(Greenlet PROPERTIES
     INTERFACE_INCLUDE_DIRECTORIES "${Greenlet_INCLUDE_DIR}"
