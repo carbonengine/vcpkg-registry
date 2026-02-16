@@ -9,8 +9,8 @@
       "port-version": 0
     },
     "carbon-resources": {
-      "baseline": "3.1.2",
-      "port-version": 1
+      "baseline": "4.0.0",
+      "port-version": 0
     },
     "carbon-scheduler": {
       "baseline": "1.4.1",
