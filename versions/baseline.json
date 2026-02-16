@@ -13,7 +13,7 @@
       "port-version": 0
     },
     "carbon-scheduler": {
-      "baseline": "1.4.1",
+      "baseline": "1.4.2",
       "port-version": 0
     },
     "ccp-debug-info": {
