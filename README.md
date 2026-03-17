@@ -24,22 +24,7 @@ unproblematic, but it does introduce a possible failure point that can strike at
 In order to make use of the triplet files inside `triplets/`, the environment variable `PATH_TO_VCPKG_ROOT` must be 
 defined as the absolute path to the root of a valid VCPKG installation.
 
-Recent changes in [vcpkg-tool](https://github.com/microsoft/vcpkg-tool/) removed the ability to access the VCPKG_ROOT environment variable from inside the VCPKG build environment, while `VCPKG_LOAD_VCVARS_ENV` is set to `ON`
-
-https://github.com/microsoft/vcpkg-tool/pull/1931
-
-This was done because the newer versions of Visual Studio (starting with 2022) are shipped with the VCPKG tool, and can provide a duplicate VCPKG_ROOT env var. This however is causing us problems, as we rely on `$ENV{VCPKG_ROOT}` to include the vcpkg system toolchain files from our custom chainloaded toolchain file:
-
-```
-include($ENV{VCPKG_ROOT}/scripts/toolchains/windows.cmake)
-include(${CMAKE_CURRENT_LIST_DIR}/../toolchains/x64-windows-145-carbon.cmake)
-```
-
-For consistency, we have changed this for both windows & macos, although windows is where the problem shows up.
-It makes sense to change it for both windows and macos, as we often set this environment variable once in a common inherited cmake preset:
-https://github.com/carbonengine/scheduler/blob/d1fa83bac1908cab78143642a2253a832e3ccb5d/CMakePresets.json#L8-L21
-
-This change has the benefit of making us more resistant to changes to the internals of the [vcpkg-tool](https://github.com/microsoft/vcpkg-tool/) in the future
+This is needed because [recent changes in the vcpkg-tool](https://github.com/microsoft/vcpkg-tool/pull/1931) removed the ability to access the VCPKG_ROOT environment variable from inside the VCPKG build environment, while `VCPKG_LOAD_VCVARS_ENV` is set to `ON`.
 
 Carbon components should contain vcpkg as a submodule, and set `PATH_TO_VCPKG_ROOT` in CMakePresets.json:
 ```json
