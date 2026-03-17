@@ -35,7 +35,6 @@ set(PATCHES
     0019-fix-ssl-linkage.patch
     0020-Py_NO_LINK_LIB.patch # Remove in 3.14 https://github.com/python/cpython/pull/19740
     ccp_customizations/exefile-compatible-multiprocessing.patch
-    ccp_customizations/msvc-build-with-v141-and-winsdk-10.0.17763.0.patch
     ccp_customizations/posix-sysconfig-vars-none.patch
     ccp_customizations/relocatable-macos-libraries.patch
     ccp_customizations/skip-proactor-event-loop-tests.patch
