@@ -8,7 +8,11 @@ set(VCPKG_CMAKE_SYSTEM_NAME Darwin)
 set(VCPKG_OSX_ARCHITECTURES x86_64)
 set(VCPKG_OSX_DEPLOYMENT_TARGET 10.14)
 
-set(VCPKG_ENV_PASSTHROUGH_UNTRACKED VCPKG_ROOT)
+# Changes in vcpkg-tool (https://github.com/microsoft/vcpkg-tool/pull/1931) removed the ability to access the VCPKG_ROOT
+# environment variable from inside the VCPKG build environment while VCPKG_LOAD_VCVARS_ENV is set to ON.
+# For consistency, we have changed this for both windows & macos.
+# More information available here: https://github.com/carbonengine/vcpkg-registry/pull/34
+set(VCPKG_ENV_PASSTHROUGH_UNTRACKED PATH_TO_VCPKG_ROOT)
 
 set(CARBON_BUILD_TYPE "Release")
 

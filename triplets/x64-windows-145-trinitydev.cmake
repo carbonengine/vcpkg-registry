@@ -8,7 +8,11 @@ set(VCPKG_BUILD_TYPE "release")
 set(VCPKG_CMAKE_SYSTEM_VERSION "10.0.26100.0")
 set(VCPKG_CMAKE_CONFIGURE_OPTIONS -DCMAKE_MSVC_RUNTIME_LIBRARY:STRING=MultiThreadedDLL)
 
-set(VCPKG_ENV_PASSTHROUGH_UNTRACKED VCPKG_ROOT)
+# Changes in vcpkg-tool (https://github.com/microsoft/vcpkg-tool/pull/1931) removed the ability to access the VCPKG_ROOT
+# environment variable from inside the VCPKG build environment while VCPKG_LOAD_VCVARS_ENV is set to ON.
+# For consistency, we have changed this for both windows & macos.
+# More information available here: https://github.com/carbonengine/vcpkg-registry/pull/34
+set(VCPKG_ENV_PASSTHROUGH_UNTRACKED PATH_TO_VCPKG_ROOT)
 set(VCPKG_LOAD_VCVARS_ENV ON)
 
 set(CARBON_BUILD_TYPE "TrinityDev")
