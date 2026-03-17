@@ -33,7 +33,7 @@ if (NOT _CCP_TOOLCHAIN_FILE_LOADED)
     ]]
     set(CCP_PLATFORM Windows CACHE STRING "Target Platform")
     set(CCP_ARCHITECTURE x64 CACHE STRING "Target Architecture")
-    set(CCP_TOOLSET v141 CACHE STRING "Target Toolset")
+    set(CCP_TOOLSET v145 CACHE STRING "Target Toolset")
 
     # https://docs.microsoft.com/en-us/cpp/build/reference/mp-build-with-multiple-processes?view=msvc-150
     add_compile_options(/MP)
