@@ -1,7 +1,7 @@
 vcpkg_from_git(
         OUT_SOURCE_PATH SOURCE_PATH
         URL git@github.com:carbonengine/resources.git
-        REF ad80c3142c0a13c59f9ff95132666f60e2411570
+        REF 9acfee7046607d95b62f64df832f9c2626971dd3
         HEAD_REF main
 )
 
