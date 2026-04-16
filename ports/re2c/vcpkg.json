@@ -1,0 +1,16 @@
+{
+  "name": "re2c",
+  "version": "2.2",
+  "description": "Lexer generator for C/C++, Go and Rust",
+  "homepage": "https://github.com/skvadrik/re2c",
+  "dependencies": [
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true
+    }
+  ]
+}
