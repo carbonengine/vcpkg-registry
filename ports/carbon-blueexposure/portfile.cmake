@@ -1,7 +1,7 @@
 vcpkg_from_git(
   OUT_SOURCE_PATH SOURCE_PATH
-  URL git@github.com:ccpgames/carbon-blueexposure.git
-  REF 8e7a0b8912251c7ca4af9e7969207a17e0bbe941
+  URL git@github.com:carbonengine/blueexposure.git
+  REF c855175f5f261a301a12b63c0337e8eb8d92b081
   HEAD_REF main
 )
 
