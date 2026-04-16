@@ -5,6 +5,10 @@
   "homepage": "https://github.com/skvadrik/re2c",
   "dependencies": [
     {
+      "name": "python3",
+      "host": true
+    },
+    {
       "name": "vcpkg-cmake",
       "host": true
     },
