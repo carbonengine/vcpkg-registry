@@ -2,7 +2,7 @@ vcpkg_from_git(
   OUT_SOURCE_PATH SOURCE_PATH
   URL git@github.com:carbonengine/exefileconsole.git
   REF 6083e3e0d0338aa3aaf0325f315411d49978ee3c
-  HEAD_REF feature/vcpkg-migration
+  HEAD_REF main
 )
 
 vcpkg_cmake_configure(
