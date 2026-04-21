@@ -1,0 +1,20 @@
+{
+  "name": "carbon-pdm",
+  "version": "2.1.7",
+  "description": "Carbon platform detection module",
+  "dependencies": [
+    {
+      "name": "ccp-debug-info",
+      "host": true,
+      "version>=": "1.0.1"
+    },
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true
+    }
+  ]
+}
