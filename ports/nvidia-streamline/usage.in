@@ -1,0 +1,5 @@
+nvidia-streamline is compatible with built-in CMake targets:
+
+    find_package(nvidia-streamline REQUIRED)
+    target_link_libraries(main PRIVATE NVIDIA::Streamline)
+@PLUGIN-USAGE@
