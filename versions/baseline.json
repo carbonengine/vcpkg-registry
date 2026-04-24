@@ -24,6 +24,10 @@
       "baseline": "2.1.7",
       "port-version": 0
     },
+    "carbon-pdmprotowrapper": {
+      "baseline": "2.0.4",
+      "port-version": 0
+    },
     "carbon-resources": {
       "baseline": "4.3.0",
       "port-version": 0
