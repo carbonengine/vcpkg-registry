@@ -1,0 +1,15 @@
+{
+  "name": "amd-fidelityfx-cas",
+  "version": "1.0",
+  "description": "Contrast Adaptive Sharpening.",
+  "dependencies": [
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true
+    }
+  ]
+}
