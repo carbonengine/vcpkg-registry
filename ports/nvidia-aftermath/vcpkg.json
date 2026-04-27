@@ -2,6 +2,7 @@
   "name": "nvidia-aftermath",
   "version": "2021.1.0",
   "description": "NVIDIA® Nsight™ Aftermath is a library that integrates into a D3D12 or Vulkan game’s crash reporter to generate GPU “mini-dumps” when an exception or TDR occurs.",
+  "supports": "windows & x64",
   "dependencies": [
     {
       "name": "vcpkg-cmake",

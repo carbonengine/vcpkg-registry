@@ -2,6 +2,7 @@
   "name": "amd-fidelityfx",
   "version": "1.1.4",
   "description": "The AMD FSR™ SDK is a collection of heavily optimized technologies that can be used by developers to improve their DirectX® 12 or Vulkan® applications.",
+  "supports": "windows & x64",
   "dependencies": [
     {
       "name": "vcpkg-cmake",

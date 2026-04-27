@@ -2,6 +2,7 @@
   "name": "intel-xess",
   "version": "2.0.1",
   "description": "A set of real-time AI-based technologies that drastically boost your frame rate at the highest visual quality while keeping your game responsive.",
+  "supports": "windows & x64",
   "dependencies": [
     {
       "name": "vcpkg-cmake",

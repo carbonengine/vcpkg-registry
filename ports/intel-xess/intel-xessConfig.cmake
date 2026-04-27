@@ -1,10 +1,6 @@
-if(WIN32)
-    add_library(INTEL::xess SHARED IMPORTED)
-    set_target_properties(INTEL::xess PROPERTIES
-        INTERFACE_INCLUDE_DIRECTORIES "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include/intel-xess"
-        IMPORTED_IMPLIB "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/lib/libxess.lib"
-        IMPORTED_LOCATION "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/bin/libxess.dll"
-    )
-else()
-    add_library(INTEL::xess INTERFACE IMPORTED)
-endif()
+add_library(INTEL::xess SHARED IMPORTED)
+set_target_properties(INTEL::xess PROPERTIES
+    INTERFACE_INCLUDE_DIRECTORIES "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include/intel-xess"
+    IMPORTED_IMPLIB "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/lib/libxess.lib"
+    IMPORTED_LOCATION "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/bin/libxess.dll"
+)
