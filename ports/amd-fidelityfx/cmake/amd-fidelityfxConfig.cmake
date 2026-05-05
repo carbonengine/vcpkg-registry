@@ -1,0 +1,6 @@
+add_library(AMD::FidelityFX SHARED IMPORTED)
+set_target_properties(AMD::FidelityFX PROPERTIES
+    INTERFACE_INCLUDE_DIRECTORIES "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include/amd-fidelityfx"
+    IMPORTED_IMPLIB "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/lib/amd_fidelityfx_dx12.lib"
+    IMPORTED_LOCATION "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/bin/amd_fidelityfx_dx12.dll"
+)

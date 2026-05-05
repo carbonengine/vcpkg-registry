@@ -1,0 +1,15 @@
+{
+  "name": "amd-fidelityfx-cacao",
+  "version": "1.2",
+  "description": "Combined Adaptive Compute Ambient Occlusion.",
+  "dependencies": [
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true
+    }
+  ]
+}
