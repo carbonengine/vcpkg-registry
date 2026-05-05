@@ -1,4 +1,4 @@
 amd-fidelityfx-cacao is compatible with built-in CMake targets:
 
-    find_package(amd-fidelityfx-cacao REQUIRED)
+    find_package(amd-fidelityfx-cacao CONFIG REQUIRED)
     target_link_libraries(main PRIVATE AMD::FidelityFX::CACAO)

@@ -1,4 +1,4 @@
 nvidia-aftermath is compatible with built-in CMake targets:
 
-    find_package(nvidia-aftermath REQUIRED)
-    target_link_libraries(main PRIVATE Nvidia::Aftermath)
+    find_package(nvidia-aftermath CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE NVIDIA::Aftermath)

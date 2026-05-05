@@ -1,5 +1,5 @@
-add_library(Nvidia::Aftermath SHARED IMPORTED)
-set_target_properties(Nvidia::Aftermath PROPERTIES
+add_library(NVIDIA::Aftermath SHARED IMPORTED)
+set_target_properties(NVIDIA::Aftermath PROPERTIES
     INTERFACE_INCLUDE_DIRECTORIES "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include/nvidia-aftermath"
     IMPORTED_IMPLIB "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/lib/GFSDK_Aftermath_Lib.x64.lib"
     IMPORTED_LOCATION "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/bin/GFSDK_Aftermath_Lib.x64.dll"

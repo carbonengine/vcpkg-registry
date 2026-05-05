@@ -1,4 +1,4 @@
 intel-xess is compatible with built-in CMake targets:
 
-    find_package(intel-xess REQUIRED)
-    target_link_libraries(main PRIVATE INTEL::xess)
+    find_package(intel-xess CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE INTEL::Xess)
