@@ -3,19 +3,19 @@
   "version": "1.0.0",
   "dependencies": [
     {
-      "name": "re2c",
-      "version>=": "2.2",
-      "host": true
+      "name": "gtest",
+      "host": true,
+      "version>=": "1.16.0"
     },
     {
       "name": "lemon-parser-generator",
-      "version>=": "3.39.3#1",
-      "host": true
+      "host": true,
+      "version>=": "3.39.3#1"
     },
     {
-      "name": "gtest",
-      "version>=": "1.16.0",
-      "host": true
+      "name": "re2c",
+      "host": true,
+      "version>=": "2.2"
     }
   ]
 }
