@@ -1,0 +1,13 @@
+{
+  "name": "libnestegg",
+  "version": "0.1",
+  "description": "WebM demultiplexing library",
+  "homepage": "https://github.com/mozilla/nestegg",
+  "license": "ISC",
+  "dependencies": [
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    }
+  ]
+}
