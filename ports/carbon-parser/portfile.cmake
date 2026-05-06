@@ -1,7 +1,7 @@
 vcpkg_from_git(
   OUT_SOURCE_PATH SOURCE_PATH
   URL git@github.com:ccpgames/carbon-parser.git
-  REF 00319eb03543daafd7fc986e4da925cae82f4af2
+  REF 6f578d18554e60b594db7bf82f7b35693a362145
   HEAD_REF main
 )
 
