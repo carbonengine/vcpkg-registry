@@ -1,0 +1,21 @@
+{
+  "name": "carbon-parser",
+  "version": "1.0.0",
+  "dependencies": [
+    {
+      "name": "gtest",
+      "host": true,
+      "version>=": "1.16.0"
+    },
+    {
+      "name": "lemon-parser-generator",
+      "host": true,
+      "version>=": "3.39.3#1"
+    },
+    {
+      "name": "re2c",
+      "host": true,
+      "version>=": "2.2"
+    }
+  ]
+}
