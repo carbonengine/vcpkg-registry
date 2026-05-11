@@ -1,0 +1,30 @@
+{
+  "name": "carbon-pathfinder",
+  "version": "3.0.1",
+  "description": "A pathfinding implementation for eve titles",
+  "dependencies": [
+    {
+      "name": "carbon-blueexposure",
+      "version>=": "2.1.1"
+    },
+    {
+      "name": "carbon-core",
+      "version>=": "2.5.0"
+    },
+    {
+      "name": "ccp-debug-info",
+      "host": true,
+      "version>=": "1.0.2"
+    },
+    {
+      "name": "vcpkg-cmake",
+      "host": true,
+      "version>=": "2024-04-23"
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true,
+      "version>=": "2024-05-23"
+    }
+  ]
+}

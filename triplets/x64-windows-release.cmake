@@ -24,6 +24,10 @@ endif ()
 
 if (PORT MATCHES "libyaml")
     set(VCPKG_LIBRARY_LINKAGE static)
+
+    # Once we upgrade to libyaml-0.2.6 or above, we will no longer need this line
+    # (currently 0.2.6 is only a release candidate and not yet available through VCPKG)
+    set(VCPKG_CMAKE_CONFIGURE_OPTIONS "${VCPKG_CMAKE_CONFIGURE_OPTIONS};-DCMAKE_POLICY_VERSION_MINIMUM=3.5")
 endif ()
 
 if (PORT MATCHES "curl")
@@ -36,6 +40,10 @@ endif ()
 
 if (PORT MATCHES "protobuf")
     set(VCPKG_LIBRARY_LINKAGE static)
+
+    # only needed for our ancient version of protobuf. Remove this when we upgrade
+    # We can't upgrade without first upgrading our windows toolchain version from v141
+    set(VCPKG_CMAKE_CONFIGURE_OPTIONS "${VCPKG_CMAKE_CONFIGURE_OPTIONS};-DCMAKE_POLICY_VERSION_MINIMUM=3.5")
 endif ()
 
 if (PORT MATCHES "zlib")

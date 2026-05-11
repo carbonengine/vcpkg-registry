@@ -24,6 +24,10 @@ endif ()
 
 if (PORT MATCHES "libyaml")
     set(VCPKG_LIBRARY_LINKAGE static)
+
+    # Once we upgrade to libyaml-0.2.6 or above, we will no longer need this line
+    # (currently 0.2.6 is only a release candidate and not yet available through VCPKG)
+    set(VCPKG_CMAKE_CONFIGURE_OPTIONS "${VCPKG_CMAKE_CONFIGURE_OPTIONS};-DCMAKE_POLICY_VERSION_MINIMUM=3.5")
 endif ()
 
 if (PORT MATCHES "curl")
