@@ -1,5 +1,5 @@
 {
-  "name": "libnestegg",
+  "name": "nestegg",
   "version": "0.1",
   "description": "WebM demultiplexing library",
   "homepage": "https://github.com/mozilla/nestegg",
