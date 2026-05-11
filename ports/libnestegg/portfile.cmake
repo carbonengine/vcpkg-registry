@@ -25,6 +25,6 @@ vcpkg_make_configure(
 )
 
 vcpkg_make_install()
-
+file(COPY "${CURRENT_LIST_DIR}/nesteggConfig.cmake" DESTINATION "${CURRENT_PACKAGES_DIR}/share/nestegg")
 file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/include")
 vcpkg_install_copyright(FILE_LIST "${SOURCE_PATH}/LICENSE")
