@@ -6,7 +6,7 @@
   "license": "ISC",
   "dependencies": [
     {
-      "name": "vcpkg-cmake",
+      "name": "vcpkg-make",
       "host": true
     }
   ]
