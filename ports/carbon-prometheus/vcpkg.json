@@ -1,0 +1,46 @@
+{
+  "name": "carbon-prometheus",
+  "version": "4.1.2",
+  "description": "Prometheus python module",
+  "dependencies": [
+    {
+      "name": "ccp-debug-info",
+      "host": true,
+      "version>=": "1.0.1"
+    },
+    {
+      "name": "curl",
+      "version>=": "7.78.0"
+    },
+    {
+      "name": "openssl",
+      "version>=": "1.1.1k#11"
+    },
+    {
+      "name": "prometheus-cpp",
+      "default-features": false,
+      "features": [
+        "pull"
+      ],
+      "version>=": "1.0.0"
+    },
+    {
+      "name": "python3",
+      "version>=": "3.12.9#1"
+    },
+    {
+      "name": "vcpkg-cmake",
+      "host": true,
+      "version>=": "2024-04-23"
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true,
+      "version>=": "2024-05-23"
+    },
+    {
+      "name": "zlib",
+      "version>=": "2.2.5"
+    }
+  ]
+}
