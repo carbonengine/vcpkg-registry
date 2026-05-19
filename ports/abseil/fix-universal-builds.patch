@@ -1,0 +1,33 @@
+Subject: [PATCH] fix-universal-builds
+---
+Index: absl/copts/AbseilConfigureCopts.cmake
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/absl/copts/AbseilConfigureCopts.cmake b/absl/copts/AbseilConfigureCopts.cmake
+--- a/absl/copts/AbseilConfigureCopts.cmake	(revision 278e0a071885a22dcd2fd1b5576cc44757299343)
++++ b/absl/copts/AbseilConfigureCopts.cmake	(date 1759756050228)
+@@ -12,7 +12,21 @@
+   set(ABSL_BUILD_DLL FALSE)
+ endif()
+ 
+-if(CMAKE_SYSTEM_PROCESSOR MATCHES "x86_64|amd64|AMD64")
++if(APPLE AND CMAKE_CXX_COMPILER_ID MATCHES [[Clang]])
++  set(ABSL_RANDOM_RANDEN_COPTS "")
++  foreach(_arch IN ITEMS "x86_64" "arm64")
++    string(TOUPPER "${_arch}" _arch_uppercase)
++    string(REPLACE "X86_64" "X64" _arch_uppercase ${_arch_uppercase})
++    foreach(_flag IN LISTS ABSL_RANDOM_HWAES_${_arch_uppercase}_FLAGS)
++      list(APPEND ABSL_RANDOM_RANDEN_COPTS "-Xarch_${_arch}" "${_flag}")
++    endforeach()
++  endforeach()
++  option(ABSL_RANDOM_RANDEN_COPTS_WARNING OFF
++          "Warn if one of ABSL_RANDOM_RANDEN_COPTS is unused")
++  if(ABSL_RANDOM_RANDEN_COPTS AND NOT ABSL_RANDOM_RANDEN_COPTS_WARNING)
++    list(APPEND ABSL_RANDOM_RANDEN_COPTS "-Wno-unused-command-line-argument")
++  endif()
++elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "x86_64|amd64|AMD64")
+   if (MSVC)
+     set(ABSL_RANDOM_RANDEN_COPTS "${ABSL_RANDOM_HWAES_MSVC_X64_FLAGS}")
+   else()
