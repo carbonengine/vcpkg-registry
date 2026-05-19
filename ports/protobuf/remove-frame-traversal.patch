@@ -1,0 +1,62 @@
+Subject: [PATCH] remove-frame-traversal
+---
+Index: python/google/protobuf/pyext/descriptor.cc
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/python/google/protobuf/pyext/descriptor.cc b/python/google/protobuf/pyext/descriptor.cc
+--- a/python/google/protobuf/pyext/descriptor.cc	(revision 909a0f36a10075c4b4bc70fdee2c7e32dd612a72)
++++ b/python/google/protobuf/pyext/descriptor.cc	(date 1759755770299)
+@@ -100,51 +100,6 @@
+ // TODO(amauryfa): Change the proto2 compiler to remove the assignments, and
+ // remove this hack.
+ bool _CalledFromGeneratedFile(int stacklevel) {
+-#ifndef PYPY_VERSION
+-  // This check is not critical and is somewhat difficult to implement correctly
+-  // in PyPy.
+-  PyFrameObject* frame = PyEval_GetFrame();
+-  if (frame == NULL) {
+-    return false;
+-  }
+-  while (stacklevel-- > 0) {
+-    frame = frame->f_back;
+-    if (frame == NULL) {
+-      return false;
+-    }
+-  }
+-
+-  if (frame->f_code->co_filename == NULL) {
+-    return false;
+-  }
+-  char* filename;
+-  Py_ssize_t filename_size;
+-  if (PyString_AsStringAndSize(frame->f_code->co_filename,
+-                               &filename, &filename_size) < 0) {
+-    // filename is not a string.
+-    PyErr_Clear();
+-    return false;
+-  }
+-  if ((filename_size < 3) ||
+-      (strcmp(&filename[filename_size - 3], ".py") != 0)) {
+-    // Cython's stack does not have .py file name and is not at global module
+-    // scope.
+-    return true;
+-  }
+-  if (filename_size < 7) {
+-    // filename is too short.
+-    return false;
+-  }
+-  if (strcmp(&filename[filename_size - 7], "_pb2.py") != 0) {
+-    // Filename is not ending with _pb2.
+-    return false;
+-  }
+-
+-  if (frame->f_globals != frame->f_locals) {
+-    // Not at global module scope
+-    return false;
+-  }
+-#endif
+   return true;
+ }
+ 

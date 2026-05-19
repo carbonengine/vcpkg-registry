@@ -1,0 +1,12 @@
+diff --git a/cmake/install.cmake b/cmake/install.cmake
+--- a/cmake/install.cmake	(revision 909a0f36a10075c4b4bc70fdee2c7e32dd612a72)
++++ b/cmake/install.cmake	(date 1758192451098)
+@@ -33,7 +33,7 @@
+     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+     BUNDLE DESTINATION ${CMAKE_INSTALL_BINDIR}
+     COMPONENT protoc)
+-  if (UNIX AND NOT APPLE)
++  if (UNIX AND NOT APPLE AND NOT protobuf_MSVC_STATIC_RUNTIME)
+     set_property(TARGET protoc
+       PROPERTY INSTALL_RPATH "$ORIGIN/../${CMAKE_INSTALL_LIBDIR}")
+   elseif (APPLE)

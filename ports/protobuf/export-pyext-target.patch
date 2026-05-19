@@ -1,0 +1,113 @@
+From e8e613d64fb06d3580b41305d97b8f4e5f5d8cd5 Mon Sep 17 00:00:00 2001
+From: ccp-serpent
+Date: Thu, 9 Oct 2025 16:04:36 +0000
+Subject: Export pyext target
+
+Exports a new `pyext` target which allows access to protobuf
+internals.
+---
+ cmake/CMakeLists.txt |  5 +++++
+ cmake/install.cmake  | 16 +++++++++++++++-
+ cmake/pyext.cmake    | 29 +++++++++++++++++++++++++++++
+ 3 files changed, 49 insertions(+), 1 deletion(-)
+ create mode 100644 cmake/pyext.cmake
+
+diff --git a/cmake/CMakeLists.txt b/cmake/CMakeLists.txt
+index 5c3b6e451..4b09c1b57 100644
+--- a/cmake/CMakeLists.txt
++++ b/cmake/CMakeLists.txt
+@@ -45,6 +45,7 @@ option(protobuf_BUILD_CONFORMANCE "Build conformance tests" OFF)
+ option(protobuf_BUILD_EXAMPLES "Build examples" OFF)
+ option(protobuf_BUILD_PROTOC_BINARIES "Build libprotoc and protoc compiler" ON)
+ option(protobuf_BUILD_LIBPROTOC "Build libprotoc" OFF)
++option(protobuf_BUILD_PYEXT "Build pyext" ON)
+ option(protobuf_DISABLE_RTTI "Remove runtime type information in the binaries" OFF)
+ if (BUILD_SHARED_LIBS)
+   set(protobuf_BUILD_SHARED_LIBS_DEFAULT ON)
+@@ -253,6 +254,10 @@ if (protobuf_UNICODE)
+   add_definitions(-DUNICODE -D_UNICODE)
+ endif (protobuf_UNICODE)
+ 
++if(protobuf_BUILD_PYEXT)
++  include(pyext.cmake)
++endif(protobuf_BUILD_PYEXT)
++
+ include(libprotobuf-lite.cmake)
+ include(libprotobuf.cmake)
+ if (protobuf_BUILD_LIBPROTOC)
+diff --git a/cmake/install.cmake b/cmake/install.cmake
+index ef5bb1306..23ffa5a7d 100644
+--- a/cmake/install.cmake
++++ b/cmake/install.cmake
+@@ -10,6 +10,10 @@ if (protobuf_BUILD_LIBPROTOC)
+     list(APPEND _protobuf_libraries libprotoc)
+ endif (protobuf_BUILD_LIBPROTOC)
+ 
++if(protobuf_BUILD_PYEXT)
++  list(APPEND _protobuf_libraries pyext)
++endif(protobuf_BUILD_PYEXT)
++
+ foreach(_library ${_protobuf_libraries})
+   set_property(TARGET ${_library}
+     PROPERTY INTERFACE_INCLUDE_DIRECTORIES
+@@ -25,7 +29,8 @@ foreach(_library ${_protobuf_libraries})
+   install(TARGETS ${_library} EXPORT protobuf-targets
+     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT ${_library}
+     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT ${_library}
+-    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT ${_library})
++    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT ${_library}
++    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR} COMPONENT ${_library})
+ endforeach()
+ 
+ if (protobuf_BUILD_PROTOC_BINARIES)
+@@ -65,6 +70,15 @@ foreach(_extract_string ${_extract_strings})
+   endif()
+ endforeach()
+ 
++# Install pyext headers
++if(protobuf_BUILD_PYEXT)
++  foreach(pyext_header ${pyext_headers})
++    file(RELATIVE_PATH relative_subdir ${pyext_dir} ${pyext_header})
++    get_filename_component(subdir ${relative_subdir} DIRECTORY)
++    install(FILES ${pyext_header} DESTINATION "include/google/protobuf/pyext/${subdir}")
++  endforeach()
++endif(protobuf_BUILD_PYEXT)
++
+ # Internal function for parsing auto tools scripts
+ function(_protobuf_auto_list FILE_NAME VARIABLE)
+   file(STRINGS ${FILE_NAME} _strings)
+diff --git a/cmake/pyext.cmake b/cmake/pyext.cmake
+new file mode 100644
+index 000000000..7691ab78f
+--- /dev/null
++++ b/cmake/pyext.cmake
+@@ -0,0 +1,29 @@
++cmake_policy(SET CMP0057 NEW)
++cmake_policy(SET CMP0074 NEW)
++
++find_package(Python3 COMPONENTS Development REQUIRED)
++
++set(pyext_dir ${CMAKE_CURRENT_SOURCE_DIR}/../python/google/protobuf/pyext)
++message("pyext_dir ${pyext_dir}")
++file(GLOB_RECURSE pyext_files
++  LIST_DIRECTORIES false
++  ${pyext_dir}/*.cc
++  ${pyext_dir}/*.h
++)
++
++file(GLOB_RECURSE pyext_headers
++  LIST_DIRECTORIES false
++  ${pyext_dir}/*.h
++)
++
++if(MSVC)
++    # Ignore const string conversion and integer precision loss
++    add_compile_options(/Zc:strictStrings- /wd4244 /wd4267)
++endif()
++
++add_library(pyext STATIC ${pyext_files})
++target_include_directories(pyext PUBLIC
++  ${pyext_dir}
++  ${protobuf_source_dir}/python
++)
++target_link_libraries(pyext PUBLIC libprotobuf Python3::Python)

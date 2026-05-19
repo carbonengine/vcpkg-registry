@@ -1,0 +1,22 @@
+From d649cecd750cad6aabf0e596753aa01ad3c5cc4f Mon Sep 17 00:00:00 2001
+From: ccp-serpent
+Date: Thu, 9 Oct 2025 16:08:09 +0000
+Subject: Fix pyext build error on windows
+
+---
+ python/google/protobuf/pyext/unknown_fields.cc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/python/google/protobuf/pyext/unknown_fields.cc b/python/google/protobuf/pyext/unknown_fields.cc
+index deb86e691..caeaddeea 100644
+--- a/python/google/protobuf/pyext/unknown_fields.cc
++++ b/python/google/protobuf/pyext/unknown_fields.cc
+@@ -222,7 +222,7 @@ const UnknownField* GetUnknownField(PyUnknownFieldRef* self) {
+                  "The parent message might be cleared.");
+     return NULL;
+   }
+-  ssize_t total_size = fields->field_count();
++  Py_ssize_t total_size = fields->field_count();
+   if (self->index >= total_size) {
+     PyErr_Format(PyExc_ValueError,
+                  "UnknownField does not exist. "
