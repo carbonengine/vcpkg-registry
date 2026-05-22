@@ -52,3 +52,17 @@ endif()
 if (PORT MATCHES "carbon-pdmprotowrapper")
     set(VCPKG_LIBRARY_LINKAGE static)
 endif ()
+
+if (PORT MATCHES "glslang")
+    # glslang requires a minimum deployment target of 10.15, it conflicts with our current 10.14 target, but it is only consumed by standalone tools to build shaders, not by libraries
+    # that ship with the engine, so we can safely set the deployment target to 10.15 for this port without affecting our supported OS versions for the engine itself
+    set(VCPKG_OSX_DEPLOYMENT_TARGET 10.15)
+endif ()
+
+if (PORT MATCHES "meshoptimizer")
+    set(VCPKG_LIBRARY_LINKAGE static)
+endif ()
+
+if (PORT MATCHES "tinyfiledialogs")
+    set(VCPKG_CMAKE_CONFIGURE_OPTIONS "-DCMAKE_POLICY_VERSION_MINIMUM=3.5")
+endif ()
