@@ -1,7 +1,6 @@
 {
   "name": "carbon-destiny",
   "version": "3.1.1",
-  "port-version": 0,
   "description": "Core game world simulation engine for MMOs whose titles start with Eve.",
   "dependencies": [
     {
