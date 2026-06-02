@@ -58,7 +58,7 @@
     },
     "carbon-localization": {
       "baseline": "2.2.1",
-      "port-version": 0
+      "port-version": 1
     },
     "carbon-math": {
       "baseline": "1.2.1",
