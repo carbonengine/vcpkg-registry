@@ -1,0 +1,35 @@
+{
+  "name": "carbon-destiny",
+  "version": "3.1.1",
+  "port-version": 0,
+  "description": "Core game world simulation engine for MMOs whose titles start with Eve.",
+  "dependencies": [
+    {
+      "name": "carbon-blue",
+      "version>=": "4.2.0"
+    },
+    {
+      "name": "carbon-core",
+      "version>=": "2.5.0"
+    },
+    {
+      "name": "carbon-math",
+      "version>=": "1.2.1"
+    },
+    {
+      "name": "ccp-debug-info",
+      "host": true,
+      "version>=": "1.0.2"
+    },
+    {
+      "name": "vcpkg-cmake",
+      "host": true,
+      "version>=": "2024-04-23"
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true,
+      "version>=": "2024-05-23"
+    }
+  ]
+}
