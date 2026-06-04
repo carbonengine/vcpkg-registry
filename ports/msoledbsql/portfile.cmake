@@ -20,9 +20,6 @@ vcpkg_extract_archive(
         DESTINATION ${OLEDB_EXTRACT_DIR}
 )
 
-file(GLOB HEADER_FILES LIST_DIRECTORIES false "${OLEDB_SDK_ROOT_DIR}/include/*.h")
-file(GLOB LIB_FILES LIST_DIRECTORIES false "${OLEDB_SDK_ROOT_DIR}/msoledbsql/18.1.0/lib/Windows/x64/v141/*.lib")
-
 file(COPY ${OLEDB_SDK_ROOT_DIR}/include/msoledbsql.h DESTINATION ${CURRENT_PACKAGES_DIR}/include)
 file(COPY ${OLEDB_SDK_ROOT_DIR}/lib/x64/msoledbsql.lib DESTINATION ${CURRENT_PACKAGES_DIR}/lib)
 file(COPY ${CMAKE_CURRENT_LIST_DIR}/msoledbsqlConfig.cmake DESTINATION ${CURRENT_PACKAGES_DIR}/share/msoledbsql)
