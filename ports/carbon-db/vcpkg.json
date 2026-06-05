@@ -15,7 +15,7 @@
     },
     {
       "name": "msoledbsql",
-      "version>=": "18.1.0#1"
+      "version>=": "18.1.0"
     },
     {
       "name": "vcpkg-cmake",
