@@ -7,14 +7,14 @@
   "supports": "(windows & x64) | osx",
   "dependencies": [
     {
-      "name": "3dxwaresdk-win",
-      "version>=": "10.5.10",
-      "platform": "windows"
+      "name": "3dxwaresdk-osx",
+      "platform": "osx",
+      "version>=": "10.7.0"
     },
     {
-      "name": "3dxwaresdk-osx",
-      "version>=": "10.7.0",
-      "platform": "osx"
+      "name": "3dxwaresdk-win",
+      "platform": "windows",
+      "version>=": "10.5.10"
     },
     {
       "name": "ccp-debug-info",
