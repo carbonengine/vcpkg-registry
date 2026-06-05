@@ -1,0 +1,7 @@
+{
+  "name": "msoledbsql",
+  "version": "18.1.0",
+  "description": "The OLE DB Driver for SQL Server is a stand-alone data access application programming interface (API), that is part of OLE DB",
+  "homepage": "https://learn.microsoft.com/en-us/sql/connect/oledb/oledb-driver-for-sql-server?view=sql-server-ver17",
+  "supports": "windows & x64"
+}
