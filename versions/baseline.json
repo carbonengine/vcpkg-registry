@@ -1,5 +1,13 @@
 {
   "default": {
+    "3dxwaresdk-osx": {
+      "baseline": "10.7.0",
+      "port-version": 0
+    },
+    "3dxwaresdk-win": {
+      "baseline": "10.5.10",
+      "port-version": 0
+    },
     "abseil": {
       "baseline": "20210324.2",
       "port-version": 0

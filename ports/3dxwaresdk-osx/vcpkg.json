@@ -1,0 +1,12 @@
+{
+  "name": "3dxwaresdk-osx",
+  "version": "10.7.0",
+  "description": "The macOS 3DxWare SDK from 3Dconnexion",
+  "supports": "osx",
+  "dependencies": [
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    }
+  ]
+}
