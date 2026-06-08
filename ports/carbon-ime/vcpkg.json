@@ -1,0 +1,29 @@
+{
+  "name": "carbon-ime",
+  "version": "2.0.0",
+  "description": "Provides native input method editor integration for Carbon projects.",
+  "homepage": "https://github.com/carbonengine/ime",
+  "license": "MIT",
+  "supports": "(windows & x64) | osx",
+  "dependencies": [
+    {
+      "name": "carbon-blue",
+      "version>=": "4.2.1"
+    },
+    {
+      "name": "ccp-debug-info",
+      "host": true,
+      "version>=": "1.0.2"
+    },
+    {
+      "name": "vcpkg-cmake",
+      "host": true,
+      "version>=": "2024-04-23"
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true,
+      "version>=": "2024-05-23"
+    }
+  ]
+}
