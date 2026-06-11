@@ -76,6 +76,10 @@
       "baseline": "2.0.5",
       "port-version": 0
     },
+    "carbon-imagetools": {
+      "baseline": "2.0.2",
+      "port-version": 0
+    },
     "carbon-ime": {
       "baseline": "2.0.0",
       "port-version": 0
