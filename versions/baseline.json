@@ -62,7 +62,7 @@
     },
     "carbon-exefile-interpreter": {
       "baseline": "1.1.1",
-      "port-version": 0
+      "port-version": 1
     },
     "carbon-exefileconsole": {
       "baseline": "1.1.1",
