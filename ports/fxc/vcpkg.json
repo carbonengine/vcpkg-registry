@@ -1,0 +1,16 @@
+{
+  "name": "fxc",
+  "version": "10.1",
+  "description": "Microsoft’s command-line HLSL shader compiler for the legacy pipeline.",
+  "supports": "windows & x64",
+  "dependencies": [
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+fxc tool can be used with the following:
+
+    find_program(FXC_TOOL fxc REQUIRED)
