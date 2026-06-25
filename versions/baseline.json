@@ -176,8 +176,16 @@
       "baseline": "2018-08-09",
       "port-version": 1
     },
+    "libvpx": {
+      "baseline": "1.16.0",
+      "port-version": 0
+    },
     "msoledbsql": {
       "baseline": "18.1.0",
+      "port-version": 0
+    },
+    "nasm": {
+      "baseline": "3.1.0",
       "port-version": 0
     },
     "nvidia-aftermath": {
