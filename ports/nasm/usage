@@ -1,0 +1,3 @@
+nasm can be used with the following:
+
+    find_program(NASM_TOOL nasm REQUIRED)

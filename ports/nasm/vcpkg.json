@@ -1,0 +1,16 @@
+{
+  "name": "nasm",
+  "version": "3.1.0",
+  "description": "Assembler and disassembler for the Intel x86 architecture.",
+  "supports": "osx",
+  "dependencies": [
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true
+    }
+  ]
+}
