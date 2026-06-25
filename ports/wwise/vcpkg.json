@@ -1,0 +1,17 @@
+{
+  "name": "wwise",
+  "version": "2025.1.5.9095",
+  "description": "Audiokinetic Wwise audio engine SDK",
+  "homepage": "https://www.audiokinetic.com/products/wwise/",
+  "supports": "(windows & x64) | osx",
+  "dependencies": [
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true
+    }
+  ]
+}
