@@ -1,6 +1,7 @@
 {
   "name": "carbon-mesh",
   "version": "1.0.0",
+  "port-version": 1,
   "description": "Library that handles serialization of 3D mesh, skeleton and animation data. It also provides basic animation runtime support.",
   "dependencies": [
     {
