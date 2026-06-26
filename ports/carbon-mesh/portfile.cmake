@@ -1,13 +1,13 @@
 vcpkg_from_git(
   OUT_SOURCE_PATH SOURCE_PATH
   URL git@github.com:carbonengine/mesh.git
-  REF 8c2020934e8e126458f6cf87b7f3737ab0c6e77d
+  REF de513eefdb095fcb04706b598df73c24b356895e
   HEAD_REF main
 )
 vcpkg_from_git(
   OUT_SOURCE_PATH UFBX_SOURCE_PATH
   URL git@github.com:ufbx/ufbx.git
-  REF de513eefdb095fcb04706b598df73c24b356895e
+  REF 448a7cc3ac0a323a870d118362830fb9936e586a
   HEAD_REF main
 )
 file(REMOVE_RECURSE "${SOURCE_PATH}/vendor/github.com/ufbx/ufbx")
