@@ -4,23 +4,29 @@
   "description": "Carbon videoplay module for video processing.",
   "dependencies": [
     {
-      "name": "ccp-debug-info",
-      "host": true,
-      "version>=": "1.0.2"
-    },
-	{
       "name": "carbon-blue",
       "version>=": "5.1.2"
-    },    
-	{
+    },
+    {
       "name": "carbon-trinity",
-      "version>=": "3.10.3",
+      "features": [
+        "metal"
+      ],
       "platform": "osx",
-      "features":["metal" ]
+      "version>=": "3.10.3"
     },
     {
       "name": "carbon-trinityaudioapi",
       "version>=": "2.0.3"
+    },
+    {
+      "name": "ccp-debug-info",
+      "host": true,
+      "version>=": "1.0.2"
+    },
+    {
+      "name": "libnestegg",
+      "version>=": "2018-08-09#1"
     },
     {
       "name": "libvorbis",
@@ -29,10 +35,6 @@
     {
       "name": "libvpx",
       "version>=": "1.16.0"
-    },
-    {
-      "name": "libnestegg",
-      "version>=": "2018-08-09#1"
     },
     {
       "name": "vcpkg-cmake",
