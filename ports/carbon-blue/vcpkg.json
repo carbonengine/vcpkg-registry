@@ -1,6 +1,7 @@
 {
   "name": "carbon-blue",
   "version": "5.1.2",
+  "port-version": 1,
   "description": "Central library providing the embedded Python interpreter, game loop, resource-loading and other functions",
   "dependencies": [
     {
@@ -44,7 +45,7 @@
     },
     {
       "name": "openssl",
-      "version>=": "1.1.1k#11"
+      "version>=": "1.1.1k"
     },
     {
       "name": "python3",
