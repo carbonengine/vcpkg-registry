@@ -1,6 +1,8 @@
 # vcpkg Flight Rules
 
-Instructions & Guidelines for Updating this vcpkg Registry.
+Instructions & Guidelines for:
+- Building carbon engine components using vcpkg
+- Updating this vcpkg Registry
 
 ## vcpkg Primer
 
