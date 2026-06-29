@@ -1,14 +1,14 @@
-# VCPKG Primer
+# vcpkg Primer
 
-This primer is a useful starting point for learning about VCPKG and how we use it to build the Carbon Engine. It provides information & context where I felt the official vcpkg documentation was unclear or simply lacking.
-[**The official vcpkg documentation website**](https://learn.microsoft.com/en-us/vcpkg/) provides an excellent reference for everything discussed here, and if you want to learn more about how VCPKG works, you should go and read that.
+This primer is a useful starting point for learning about vcpkg and how we use it to build the Carbon Engine. It provides information & context where I felt the official vcpkg documentation was unclear or simply lacking.
+[**The official vcpkg documentation website**](https://learn.microsoft.com/en-us/vcpkg/) provides an excellent reference for everything discussed here, and if you want to learn more about how vcpkg works, you should go and read that.
 
-If you are an employee of Fenris Creations and want a more thourough understanding of how we leverage VCPKG in our builds, please see the video of my (ccptoebeans) VCPKG Training Session that I ran for the platform team before we carried out the open source project.
+If you are an employee of Fenris Creations and want a more thourough understanding of how we leverage vcpkg in our builds, please see the video of my (ccptoebeans) vcpkg Training Session that I ran for the platform team before we carried out the open source project.
 This documentation is a distillation of the information given in that training session.
 
 ### Does it do?
 
-VCPKG is a tool for managing dependencies of C/C++ projects.
+vcpkg is a tool for managing dependencies of C/C++ projects.
 It performs multiple jobs:
 - Tracking dependencies & their versions in [Registries](https://learn.microsoft.com/en-us/vcpkg/concepts/registries)
 - Building dependencies across different target platforms & architectures with [Triplet files](https://learn.microsoft.com/en-us/vcpkg/concepts/triplets)
@@ -40,7 +40,7 @@ scheduler's dependencies:
 }
 ```
 
-Each component can itself be provided as a package, or "port" consumable through VCPKG.
+Each component can itself be provided as a package, or "port" consumable through vcpkg.
 scheduler's vcpkg port is [here](https://github.com/carbonengine/vcpkg-registry/tree/fcc57c09e7a86b45da0570947e8294c401a403ae/ports/carbon-scheduler)
 A port contains a `vcpkg.json` file specifying the port's version and listing it's dependencies, and a `portfile.cmake` script, responsible for building the package.
 
@@ -80,14 +80,14 @@ ccp_externalize_apple_debuginfo()
 
 ### How does it work?
 
-We use VCPKG through CMake. As soon a the CMake configure step begins, it runs the [vcpkg.cmake](https://github.com/microsoft/vcpkg/blob/a0400024711b283056538ac19ced80b91a83c24c/scripts/buildsystems/vcpkg.cmake) toolchain file, which calls the vcpkg executable, which then reads the vcpkg.json & vcpkg-configuration.json files. From these two files, it builds a dependency tree with the correct versions of each package, downloads & builds those packages. Each dependency package gets built by running each one's [portfile.cmake](../ports/carbon-core/portfile.cmake) cmake script.
+We use vcpkg through CMake. As soon a the CMake configure step begins, it runs the [vcpkg.cmake](https://github.com/microsoft/vcpkg/blob/a0400024711b283056538ac19ced80b91a83c24c/scripts/buildsystems/vcpkg.cmake) toolchain file, which calls the vcpkg executable, which then reads the vcpkg.json & vcpkg-configuration.json files. From these two files, it builds a dependency tree with the correct versions of each package, downloads & builds those packages. Each dependency package gets built by running each one's [portfile.cmake](../../ports/carbon-core/portfile.cmake) cmake script.
 
 To allow this to happen with minimal end-user configuration, we submodule the [microsoft/vcpkg](https://github.com/microsoft/vcpkg) repository into all of our engine component's git repositories under [vendor/github.com/microsoft/vcpkg](https://github.com/carbonengine/core/tree/main/vendor/github.com/microsoft)
 As this repository [carbonengine/vcpkg-registry](https://github.com/carbonengine/vcpkg-registry) contains important configuration shared between all components, we also submodule this in to our carbon component repositories under [vendor/github.com/carbonengine/vcpkg-registry](https://github.com/carbonengine/core/tree/main/vendor/github.com/carbonengine)
 
-### How VCPKG Resolves Dependencies
+### How vcpkg Resolves Dependencies
 
-As I mentioned above, a VCPKG port contains two files, a vcpkg.json file and a portfile.
+As I mentioned above, a vcpkg port contains two files, a vcpkg.json file and a portfile.
 the vcpkg.json file contains version information about the package:
 [ports/carbon-scheduler/vcpkg.json](https://github.com/carbonengine/vcpkg-registry/blob/fcc57c09e7a86b45da0570947e8294c401a403ae/ports/carbon-scheduler/vcpkg.json)
 ```
@@ -117,10 +117,10 @@ Consider the case of a component relying on `v1.4.1` of scheduler:
     "version>=": "1.4.1"
 }
 ```
-Firstly, VCPKG will always use the **MINIMUM** version of any dependency. This is why version numbers are always specified as minimums (` version >= ~ `). If anything else in our build tree also depends on scheduler, it will choose the lowest version it can that satisfies all version constraints.
-For instance, if we depend on scheduler at >=1.4.1, but one of our dependencies depends on scheduler at >=1.4.0. VCPKG will choose 1.4.1, as this satisfies both version constraints.
+Firstly, vcpkg will always use the **MINIMUM** version of any dependency. This is why version numbers are always specified as minimums (` version >= ~ `). If anything else in our build tree also depends on scheduler, it will choose the lowest version it can that satisfies all version constraints.
+For instance, if we depend on scheduler at >=1.4.1, but one of our dependencies depends on scheduler at >=1.4.0. vcpkg will choose 1.4.1, as this satisfies both version constraints.
 
-VCPKG will then access your [vcpkg-configuration.json](https://github.com/carbonengine/io/blob/5c4c669f6ebbda56996f1326315222dae9bf281e/vcpkg-configuration.json#L12) file to determine which VCPKG registry contains the carbon-scheduler port, it will then download that registry.
+vcpkg will then access your [vcpkg-configuration.json](https://github.com/carbonengine/io/blob/5c4c669f6ebbda56996f1326315222dae9bf281e/vcpkg-configuration.json#L12) file to determine which vcpkg registry contains the carbon-scheduler port, it will then download that registry.
 It will then inspect the [relevant version file for carbon-scheduler](https://github.com/carbonengine/vcpkg-registry/blob/fcc57c09e7a86b45da0570947e8294c401a403ae/versions/c-/carbon-scheduler.json)
 ```
 {
@@ -151,9 +151,9 @@ This leads nicely into my next point, which is that the only directories importa
 ***Please do not manually edit the contents of the `versions/` directory unless you know what you are doing.***
 There might be scenario's where editing the versions directory is nessecary, but they are rather specific, and something else has ususally already gone wrong.
 
-### Controling the Build Environment
+### Controlling the Build Environment
 
-Build & linker flags, compiler information, target & host platform information are all provided through what are called "triplet" files. These are cmake scripts that are able to set a selection VCPKG CMake variables ([documented here](https://learn.microsoft.com/en-us/vcpkg/users/triplets)) that control how dependencies are built.
+Build & linker flags, compiler information, target & host platform information are all provided through what are called "triplet" files. These are cmake scripts that are able to set a selection vcpkg CMake variables ([documented here](https://learn.microsoft.com/en-us/vcpkg/users/triplets)) that control how dependencies are built.
 One triplet file represents a target Platform, architecture & build flavour. EG [Windows x64 Release](https://github.com/microsoft/vcpkg/blob/master/triplets/x64-windows-release.cmake)
 VCPGK comes with a set of [default triplet files](https://github.com/microsoft/vcpkg/tree/master/triplets) that it is able to use out of the box. But you are able to define your own, as we do.
 This repository defines a set of triplet files one for each Platform Architecture and build flavour combination, that must be used to build components of the carbon game-engine.
