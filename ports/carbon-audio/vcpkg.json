@@ -1,0 +1,48 @@
+{
+  "name": "carbon-audio",
+  "version": "8.1.1",
+  "description": "Carbon engine's audio intergration component",
+  "dependencies": [
+    {
+      "name": "carbon-blue",
+      "version>=": "5.1.2"
+    },
+    {
+      "name": "carbon-exefile",
+      "host": true,
+      "version>=": "4.1.1"
+    },
+    {
+      "name": "carbon-math",
+      "version>=": "1.2.1"
+    },
+    {
+      "name": "carbon-trinityaudioapi",
+      "version>=": "2.0.3"
+    },
+    {
+      "name": "ccp-debug-info",
+      "host": true,
+      "version>=": "1.0.2"
+    },
+    {
+      "name": "python3",
+      "version>=": "3.12.9#1"
+    },
+    "tbb",
+    {
+      "name": "vcpkg-cmake",
+      "host": true,
+      "version>=": "2024-04-23"
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true,
+      "version>=": "2024-05-23"
+    },
+    {
+      "name": "wwise",
+      "version>=": "2025.1.5.9095"
+    }
+  ]
+}
