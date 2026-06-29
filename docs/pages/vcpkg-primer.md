@@ -6,7 +6,7 @@ This primer is a useful starting point for learning about vcpkg and how we use i
 If you are an employee of Fenris Creations and want a more thourough understanding of how we leverage vcpkg in our builds, please see the video of my (ccptoebeans) vcpkg Training Session that I ran for the platform team before we carried out the open source project.
 This documentation is a distillation of the information given in that training session.
 
-### Does it do?
+### What does it do?
 
 vcpkg is a tool for managing dependencies of C/C++ projects.
 It performs multiple jobs:
@@ -80,7 +80,7 @@ ccp_externalize_apple_debuginfo()
 
 ### How does it work?
 
-We use vcpkg through CMake. As soon a the CMake configure step begins, it runs the [vcpkg.cmake](https://github.com/microsoft/vcpkg/blob/a0400024711b283056538ac19ced80b91a83c24c/scripts/buildsystems/vcpkg.cmake) toolchain file, which calls the vcpkg executable, which then reads the vcpkg.json & vcpkg-configuration.json files. From these two files, it builds a dependency tree with the correct versions of each package, downloads & builds those packages. Each dependency package gets built by running each one's [portfile.cmake](../../ports/carbon-core/portfile.cmake) cmake script.
+We use vcpkg through CMake. As soon as the CMake configure step begins, it runs the [vcpkg.cmake](https://github.com/microsoft/vcpkg/blob/a0400024711b283056538ac19ced80b91a83c24c/scripts/buildsystems/vcpkg.cmake) toolchain file, which calls the vcpkg executable, which then reads the vcpkg.json & vcpkg-configuration.json files. From these two files, it builds a dependency tree with the correct versions of each package, downloads & builds those packages. Each dependency package gets built by running each one's [portfile.cmake](../../ports/carbon-core/portfile.cmake) cmake script.
 
 To allow this to happen with minimal end-user configuration, we submodule the [microsoft/vcpkg](https://github.com/microsoft/vcpkg) repository into all of our engine component's git repositories under [vendor/github.com/microsoft/vcpkg](https://github.com/carbonengine/core/tree/main/vendor/github.com/microsoft)
 As this repository [carbonengine/vcpkg-registry](https://github.com/carbonengine/vcpkg-registry) contains important configuration shared between all components, we also submodule this in to our carbon component repositories under [vendor/github.com/carbonengine/vcpkg-registry](https://github.com/carbonengine/core/tree/main/vendor/github.com/carbonengine)
@@ -88,7 +88,7 @@ As this repository [carbonengine/vcpkg-registry](https://github.com/carbonengine
 ### How vcpkg Resolves Dependencies
 
 As I mentioned above, a vcpkg port contains two files, a vcpkg.json file and a portfile.
-the vcpkg.json file contains version information about the package:
+The vcpkg.json file contains version information about the package:
 [ports/carbon-scheduler/vcpkg.json](https://github.com/carbonengine/vcpkg-registry/blob/fcc57c09e7a86b45da0570947e8294c401a403ae/ports/carbon-scheduler/vcpkg.json)
 ```
 "name": "carbon-scheduler",
