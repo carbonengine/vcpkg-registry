@@ -24,7 +24,7 @@ This is an example of a preset:
 
 A build using a preset preset can be invoked like so:
 `cmake --preset arm64-osx-trinitydev`
-Given you have correctly installed a support version of cmake the relavent compiler toolchains on your system, simply running this line is enough to build any carbon component.
+Given you have correctly installed a supported version of cmake the relavent compiler toolchains on your system, simply running this line is enough to build any carbon component.
 You must use the correct preset for your system. You can list presets relavent to your system with the command:
 `cmake --list-presets`
 ```
