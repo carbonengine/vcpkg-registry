@@ -86,7 +86,7 @@ vendor/
 	microsoft/vcpkg/
 ```
 
-As mentioned in the [vcpkg primer](pages/vcpkg-primer.md), triplet files control the build environment, compiler & linker flags for dependencies. It is a mistake to assume that they do this for your "top-level project".
+As mentioned in the [vcpkg primer](vcpkg-primer.md), triplet files control the build environment, compiler & linker flags for dependencies. It is a mistake to assume that they do this for your "top-level project".
 
 In this example project, build and linker flags for `main.cpp` is entirely the responsibility of the `CMakeLists.txt` and any configuration passed to it from cmake.
 
