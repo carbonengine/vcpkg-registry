@@ -135,7 +135,7 @@ Lets say you're working on a change to [Core](https://github.com/carbonengine/co
 
 This documentation assumes you know what [Overlay Ports](https://learn.microsoft.com/en-us/vcpkg/concepts/overlay-ports) are.
 
-To understand this section, please read through the [Overlay Ports](https://learn.microsoft.com/en-us/vcpkg/concepts/overlay-ports) of the vcpkg documentation.
+To understand this section, please read through the [Overlay Ports](https://learn.microsoft.com/en-us/vcpkg/concepts/overlay-ports) section of the vcpkg documentation.
 
 The rest of the instructions will assume you are changing [Core](https://github.com/carbonengine/core), and testing it with [Scheduler](https://github.com/carbonengine/scheduler) but they apply to any project available through vcpkg.
 
