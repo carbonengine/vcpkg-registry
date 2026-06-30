@@ -129,7 +129,65 @@ Then just as in the "Updating vcpkg ports" section, push your new branch to your
 
 
 ## Making local changes to dependencies
-...
+
+Lets say you're working on a change to [Core](https://github.com/carbonengine/core) and you want to build [Scheduler](https://github.com/carbonengine/scheduler) with it locally before creating a pull request.
+[Scheduler](https://github.com/carbonengine/scheduler) depends on [Core](https://github.com/carbonengine/core), so a common carbon engine developer work flow is testing dependency changes with dependent projects.
+
+This documentation assumes you know what [Overlay Ports](https://learn.microsoft.com/en-us/vcpkg/concepts/overlay-ports) are.
+
+To understand this section, please read through the [Overlay Ports](https://learn.microsoft.com/en-us/vcpkg/concepts/overlay-ports) of the vcpkg documentation.
+
+The rest of the instructions will assume you are changing [Core](https://github.com/carbonengine/core), and testing it with [Scheduler](https://github.com/carbonengine/scheduler) but they apply to any project available through vcpkg.
+
+Create a patch file or files representing the diff between your changes and the latest version of Core in vcpkg.
+
+Copy the port directory `ports/carbon-core` and place it in a temporary location on your machine EG `Desktop/tmp/myoverlayports/carbon-core`. From now on when the instructions refer to editing the carbon-core port, they mean this temporary copy of it.
+
+Drag in to the temporary port (`Desktop/tmp/myoverlayports/carbon-core`) your git patch file, generated with the `git diff` command.
+
+Edit the porfile.cmake in the temporary port, and add a `PATCHES` parameter to the `vcpkg_from_git/gitlab` functions. (this also applies to the `vcpkg_from_github` command. Most other portfile functions for downloading code support similar functionality, for details consult the  [portfile reference documentation](https://learn.microsoft.com/en-us/vcpkg/maintainers/functions/vcpkg_from_git))
+
+```
+vcpkg_from_git(
+  OUT_SOURCE_PATH SOURCE_PATH
+  URL git@github.com:carbonengine/core.git
+  REF 250df5221bdbb981a46669ac7a7e72ed33e099e0
+  HEAD_REF main
+  PATCHES mypatchfile.patch # <-- add a PATCHES parameter, check the documentation, this supports multiple patch files
+)
+```
+
+Now we'll assume that you want to build Scheduler against this patched version of core.
+
+In the scheduler project, open up the `vcpkg-configuration.json` file, and add an "overlay-ports" field that is a list containing a path to your overlay ports directory
+[vcpkg-configuration.json](https://github.com/carbonengine/scheduler/blob/d1fa83bac1908cab78143642a2253a832e3ccb5d/vcpkg-configuration.json)
+```
+{
+  "default-registry": {
+    "kind": "git",
+    "baseline": "242ac6932a9cd2607332969129e9572516f28d65",
+    "repository": "https://github.com/microsoft/vcpkg.git"
+  },
+  "registries": [
+    {
+      "kind": "git",
+      "repository": "git@github.com:carbonengine/vcpkg-registry.git",
+      "baseline": "d431d05377ae8d620c644c49c3f4d1bd974cee18",
+      "packages": ["python3", "ccp-debug-info", "carbon-core", "greenlet", "tracy"]
+    }
+  ],
+
+  "overlay-ports": ["Desktop/tmp/myoverlayports"]
+}
+```
+
+Now when you build Scheduler, vcpkg will look for any dependencies in the `myoverlayports` directory first. So even though, `carbon-core` is configured to be sourced from the [carbonengine/vcpkg-registry](https:github.com/carbonengine/vcpkg-registry), it will be sourced from your `myoverlayports` directory. 
 
 ## Things to consider when adding dependencies from vcpkg
-...
+
+It's important to note that our triplet files build dependencies dynamically by default. If you add a dependency, if you add a dependency and you want it built statically, you will need to add a [port customization](https://learn.microsoft.com/en-us/vcpkg/users/triplets#per-port-customization) for it in our triplet files, EG:
+```
+if (PORT MATCHES "freetype")
+    set(VCPKG_LIBRARY_LINKAGE static)
+endif ()
+```
