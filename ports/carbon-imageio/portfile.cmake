@@ -1,7 +1,7 @@
 vcpkg_from_git(
   OUT_SOURCE_PATH SOURCE_PATH
   URL git@github.com:carbonengine/imageio.git
-  REF 56594d8d4bc4015e841b36f928555b9d2b614922
+  REF 88d14adcd83033b57df99d7b8629169236e02abf
   HEAD_REF main
 )
 
