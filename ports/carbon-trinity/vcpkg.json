@@ -1,6 +1,6 @@
 {
   "name": "carbon-trinity",
-  "version": "3.10.3",
+  "version": "4.0.1",
   "description": "Graphics engine for the carbon game engine",
   "dependencies": [
     {
@@ -29,7 +29,7 @@
     },
     {
       "name": "carbon-mesh",
-      "version>=": "0.0.1"
+      "version>=": "1.0.1"
     },
     {
       "name": "carbon-parser",
