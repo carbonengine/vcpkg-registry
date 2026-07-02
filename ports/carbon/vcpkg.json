@@ -97,10 +97,6 @@
       "version>=": "4.1.2#1"
     },
     {
-      "name": "carbon-resources",
-      "version>=": "4.3.1"
-    },
-    {
       "name": "carbon-scheduler",
       "version>=": "1.4.2"
     },
@@ -109,33 +105,8 @@
       "version>=": "3.0.0"
     },
     {
-      "name": "carbon-trinity",
-      "features": [
-        "metal",
-        "shader-compiler",
-        "with-granny"
-      ],
-      "platform": "osx",
-      "version>=": "3.10.3"
-    },
-    {
-      "name": "carbon-trinity",
-      "features": [
-        "dx11",
-        "dx12",
-        "shader-compiler",
-        "with-granny"
-      ],
-      "platform": "windows & x64",
-      "version>=": "3.10.3"
-    },
-    {
       "name": "carbon-trinityaudioapi",
       "version>=": "2.0.3"
-    },
-    {
-      "name": "carbon-videoplayer",
-      "version>=": "2.0.1"
     }
   ]
 }
