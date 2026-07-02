@@ -110,15 +110,24 @@
     },
     {
       "name": "carbon-trinity",
-      "version>=": "3.10.3",
-      "platform": "windows & x64",
-      "features": ["dx11", "dx12", "shader-compiler", "with-granny"]
+      "features": [
+        "metal",
+        "shader-compiler",
+        "with-granny"
+      ],
+      "platform": "osx",
+      "version>=": "3.10.3"
     },
     {
       "name": "carbon-trinity",
-      "version>=": "3.10.3",
-      "platform": "osx",
-      "features":["metal", "shader-compiler", "with-granny" ]
+      "features": [
+        "dx11",
+        "dx12",
+        "shader-compiler",
+        "with-granny"
+      ],
+      "platform": "windows & x64",
+      "version>=": "3.10.3"
     },
     {
       "name": "carbon-trinityaudioapi",
