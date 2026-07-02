@@ -1,6 +1,6 @@
 {
   "name": "carbon-trinity",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Graphics engine for the carbon game engine",
   "dependencies": [
     {
@@ -21,7 +21,7 @@
     },
     {
       "name": "carbon-imageio",
-      "version>=": "2.0.5"
+      "version>=": "2.0.6#1"
     },
     {
       "name": "carbon-math",

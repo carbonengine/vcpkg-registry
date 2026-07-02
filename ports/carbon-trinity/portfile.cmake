@@ -1,7 +1,7 @@
 vcpkg_from_git(
   OUT_SOURCE_PATH SOURCE_PATH
   URL git@github.com:carbonengine/trinity.git
-  REF ec13000a3fdc92cccd3a84d166e34011dad972da
+  REF 4675ceaaa445f7fd44a1dc97472c8efa4ad8599c
 )
 
 # Setup the features
@@ -11,6 +11,7 @@ vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
         dx11                    BUILD_DX11
         dx12                    BUILD_DX12
         metal                   BUILD_METAL
+        with-granny             WITH_GRANNY
 )
 
 vcpkg_cmake_configure(
