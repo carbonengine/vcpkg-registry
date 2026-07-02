@@ -1,6 +1,6 @@
 {
   "name": "carbon-imagetools",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Provides Python bindings and C++ image processing utilities for Carbon projects.",
   "homepage": "https://github.com/carbonengine/imagetools",
   "license": "MIT",
@@ -12,7 +12,7 @@
     },
     {
       "name": "carbon-imageio",
-      "version>=": "2.0.3"
+      "version>=": "2.0.6"
     },
     {
       "name": "carbon-math",
@@ -41,7 +41,7 @@
       "features": [
         "nanovdb-nocuda"
       ],
-      "version>=": "10.0.0"
+      "version>=": "10.0.0#1"
     },
     {
       "name": "vcpkg-cmake",
