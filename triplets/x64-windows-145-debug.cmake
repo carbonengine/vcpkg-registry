@@ -101,3 +101,7 @@ endif ()
 if (PORT MATCHES "libvorbis")
     set(VCPKG_LIBRARY_LINKAGE static)
 endif ()
+
+if (PORT MATCHES "blosc")
+    set(VCPKG_CMAKE_CONFIGURE_OPTIONS "-DCMAKE_POLICY_VERSION_MINIMUM=3.5")
+endif ()
