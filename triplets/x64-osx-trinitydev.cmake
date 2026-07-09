@@ -92,3 +92,35 @@ endif ()
 if (PORT MATCHES "libvorbis")
     set(VCPKG_LIBRARY_LINKAGE static)
 endif ()
+
+if (PORT MATCHES "openvdb")
+    set(VCPKG_LIBRARY_LINKAGE static)
+endif ()
+
+if (PORT MATCHES "boost-*")
+    set(VCPKG_LIBRARY_LINKAGE static)
+endif ()
+
+if (PORT MATCHES "imath")
+    set(VCPKG_LIBRARY_LINKAGE static)
+endif ()
+
+if (PORT MATCHES "imath")
+    set(VCPKG_LIBRARY_LINKAGE static)
+endif ()
+
+if (PORT MATCHES "blosc")
+    set(VCPKG_LIBRARY_LINKAGE static)
+endif ()
+
+if (PORT MATCHES "lz4")
+    set(VCPKG_LIBRARY_LINKAGE static)
+endif ()
+
+if (PORT MATCHES "zstd")
+    set(VCPKG_LIBRARY_LINKAGE static)
+endif ()
+
+if (PORT MATCHES "libvpx")
+    set(VCPKG_LIBRARY_LINKAGE static)
+endif ()
