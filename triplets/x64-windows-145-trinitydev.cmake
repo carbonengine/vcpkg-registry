@@ -114,10 +114,6 @@ if (PORT MATCHES "imath")
     set(VCPKG_LIBRARY_LINKAGE static)
 endif ()
 
-if (PORT MATCHES "imath")
-    set(VCPKG_LIBRARY_LINKAGE static)
-endif ()
-
 if (PORT MATCHES "blosc")
     set(VCPKG_LIBRARY_LINKAGE static)
 endif ()
