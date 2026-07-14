@@ -41,8 +41,8 @@
       "port-version": 0
     },
     "carbon-blue": {
-      "baseline": "5.1.2",
-      "port-version": 1
+      "baseline": "6.0.0",
+      "port-version": 0
     },
     "carbon-blueexposure": {
       "baseline": "2.1.1",

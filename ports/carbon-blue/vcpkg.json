@@ -1,7 +1,6 @@
 {
   "name": "carbon-blue",
-  "version": "5.1.2",
-  "port-version": 1,
+  "version-semver": "6.0.0",
   "description": "Central library providing the embedded Python interpreter, game loop, resource-loading and other functions",
   "dependencies": [
     {
@@ -10,7 +9,7 @@
     },
     {
       "name": "carbon-core",
-      "version>=": "2.6.0"
+      "version>=": "3.0.0"
     },
     {
       "name": "carbon-io",
@@ -22,7 +21,7 @@
     },
     {
       "name": "carbon-scheduler",
-      "version>=": "1.4.2"
+      "version>=": "1.4.3"
     },
     {
       "name": "ccp-debug-info",
