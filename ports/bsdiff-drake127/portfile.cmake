@@ -1,3 +1,5 @@
+vcpkg_check_linkage(ONLY_STATIC_LIBRARY)
+
 set(PATCHES
   patches/ConfigureInstallationRules.patch
 )
