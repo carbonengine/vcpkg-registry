@@ -33,7 +33,7 @@
       "port-version": 2
     },
     "carbon": {
-      "baseline": "0.8.0",
+      "baseline": "1.0.0",
       "port-version": 0
     },
     "carbon-audio": {
