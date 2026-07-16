@@ -8,10 +8,9 @@ if (NOT _CCP_TOOLCHAIN_FILE_LOADED)
     set (CMAKE_CXX_EXTENSIONS OFF CACHE STRING "")
     set (CMAKE_POSITION_INDEPENDENT_CODE ON CACHE STRING "")
     set (CMAKE_CXX_VISIBILITY_PRESET hidden CACHE STRING "")
-    # Unlike the Apple toolchains, IPO is not defaulted on here: Clang's -flto
-    # needs an LLVM-aware linker (lld or LLVMgold) that plain binutils setups
-    # lack, and a global default would fail configure-time compiler checks.
-    # Consuming projects/presets can still opt in per target or globally.
+    # NOTE: with Clang, IPO requires an LLVM-aware linker (lld or LLVMgold) to
+    # be available in the build environment.
+    set (CMAKE_INTERPROCEDURAL_OPTIMIZATION ON CACHE STRING "")
 
     #[[
         - `CCP_PLATFORM` indicates the operating system a binary was built for

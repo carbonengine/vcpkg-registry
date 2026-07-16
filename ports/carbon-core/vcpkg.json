@@ -4,7 +4,7 @@
   "description": "Provides generic low-level functionality and cross-platform abstractions for system calls",
   "homepage": "https://github.com/carbonengine/core",
   "license": "MIT",
-  "supports": "(windows & x64) | osx | (linux & x64)",
+  "supports": "(windows & x64) | osx",
   "dependencies": [
     {
       "name": "ccp-debug-info",
