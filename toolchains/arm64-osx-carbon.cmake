@@ -48,6 +48,21 @@ if (NOT _CCP_TOOLCHAIN_FILE_LOADED)
     # Manually add debug symbols to builds
     add_compile_options(-g)
 
+    # Preserve debug information when using a generator other than XCode. The XCode generator
+    # does this already; so it's an inconsistency between generators on macOS.
+    # see https://gitlab.kitware.com/cmake/cmake/-/work_items/25202
+    # see https://clang.llvm.org/docs/CommandGuide/clang.html#cmdoption-flto
+    if(NOT CMAKE_GENERATOR STREQUAL "Xcode")
+        add_link_options(-Wl,-object_path_lto,<$TARGET_PROPERTY:NAME>_lto.o)
+        # Setting a cache path enables incremental LTO
+        # See https://clang.llvm.org/docs/ThinLTO.html#incremental
+        add_link_options(-Wl,-cache_path_lto,<$TARGET_PROPERTY:NAME>_lto_cache.o)
+        # LTO cache size can be customized, it defaults to 75% available (e.g. currently free) disk space
+        # See https://clang.llvm.org/docs/ThinLTO.html#cache-pruning for details, but changing it to 50%
+        # looks like this:
+        # add_link_options(-Wl,-plugin-opt,cache-policy=cache_size=50%)
+    endif()
+
     if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS "13")
         set(MATH_OPTIMIZE_FLAG -ffast-math -fhonor-infinities -fhonor-nans)
     else()
