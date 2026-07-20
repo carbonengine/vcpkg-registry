@@ -6,6 +6,8 @@
   "license": "MIT",
   "supports": "(windows & x64) | osx",
   "dependencies": [
+    "carbon-trinity",
+    "carbon-videoplayer",
     {
       "name": "carbon-blue",
       "version>=": "6.0.0"
