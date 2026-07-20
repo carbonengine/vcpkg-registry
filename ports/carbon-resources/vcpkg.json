@@ -1,24 +1,24 @@
 {
   "name": "carbon-resources",
-  "version": "4.3.1",
+  "version": "4.3.2",
   "homepage": "https://github.com/carbonengine/resources",
   "license": "MIT",
   "dependencies": [
     {
-      "name": "argparse",
-      "version>=": "2.2"
-    },
-    {
       "name": "bsdiff-drake127",
-      "version>=": "4.3.3#1"
+      "version>=": "4.3.3#2"
     },
     {
       "name": "cryptopp",
-      "version>=": "8.9.0#1"
+      "version>=": "2026-03-02"
     },
     {
       "name": "curl",
       "version>=": "8.11.1#1"
+    },
+    {
+      "name": "inih",
+      "version>=": "62"
     },
     {
       "name": "vcpkg-cmake",
@@ -32,7 +32,7 @@
     },
     {
       "name": "yaml-cpp",
-      "version>=": "0.8.0#1"
+      "version>=": "0.9.0#1"
     },
     {
       "name": "zlib",
@@ -40,13 +40,22 @@
     }
   ],
   "features": {
+    "cli": {
+      "description": "Build carbon-resources CLI",
+      "dependencies": [
+        {
+          "name": "argparse",
+          "version>=": "2.2"
+        }
+      ]
+    },
     "docs": {
       "description": "Generate documentation",
       "dependencies": [
         {
           "name": "python3",
           "host": true,
-          "version>=": "3.12.3#1"
+          "version>=": "3.12.9#1"
         }
       ]
     },
@@ -65,11 +74,5 @@
         }
       ]
     }
-  },
-  "overrides": [
-    {
-      "name": "argparse",
-      "version": "2.2"
-    }
-  ]
+  }
 }

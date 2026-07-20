@@ -1,20 +1,16 @@
 vcpkg_from_git(
         OUT_SOURCE_PATH SOURCE_PATH
         URL git@github.com:carbonengine/resources.git
-        REF 77d0867388370a31a2f78b9f2ddbcd23deec8bc1
+        REF 677f05a0605f11ec378553c71874a964023e5010
         HEAD_REF main
 )
 
 vcpkg_check_features(OUT_FEATURE_OPTIONS RESOURCES_FEATURE_OPTIONS
         FEATURES
-        tests BUILD_TESTING
-        docs  BUILD_DOCUMENTATION
+        cli     BUILD_CLI
+        docs    BUILD_DOCUMENTATION
+        tests   BUILD_TESTING
 )
-
-set(EXTRA_OPTIONS "")
-if("tests" IN_LIST FEATURES)
-    list(APPEND EXTRA_OPTIONS -DGTest_DIR=${VCPKG_INSTALLED_DIR}/${TARGET_TRIPLET}/share/gtest)
-endif()
 
 vcpkg_cmake_configure(
         SOURCE_PATH ${SOURCE_PATH}
@@ -23,7 +19,6 @@ vcpkg_cmake_configure(
             -DVCPKG_USE_HOST_TOOLS=ON
             -DVCPKG_HOST_TRIPLET=${HOST_TRIPLET}
             -DCMAKE_BUILD_TYPE=${CARBON_BUILD_TYPE}
-            ${EXTRA_OPTIONS}
 )
 
 vcpkg_cmake_install()
