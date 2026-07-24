@@ -26,6 +26,10 @@
     }
   ],
   "features": {
+    "libprotoc": {
+      "description": "Build the libprotoc compiler library for target builds.",
+      "supports": "!uwp"
+    },
     "pyext": {
       "description": "Export pyext protobuf internals",
       "dependencies": [
@@ -34,10 +38,6 @@
           "version>=": "3.12.3#2"
         }
       ]
-    },
-    "libprotoc": {
-      "description": "Build the libprotoc compiler library for target builds.",
-      "supports": "!uwp"
     },
     "zlib": {
       "description": "ZLib based features like Gzip streams",
