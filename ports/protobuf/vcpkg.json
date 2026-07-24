@@ -1,20 +1,35 @@
 {
   "name": "protobuf",
-  "version-semver": "3.17.3",
+  "version": "6.33.4",
   "description": [
-    "Protocol Buffers - Google's data interchange format",
-    "Based off of protobuf version 3.17.3 found in microsoft's vcpkg registry",
+    "Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data.",
+    "Based off of protobuf port version 6.33.4 found in microsoft's vcpkg registry",
     "Customized for Python 3.12 compatibility, as well as a pyext feature for exporting",
     "protobuf internals."
   ],
   "homepage": "https://github.com/protocolbuffers/protobuf",
+  "license": "BSD-3-Clause",
   "dependencies": [
+    "abseil",
     {
       "name": "protobuf",
+      "host": true
+    },
+    "utf8-range",
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    },
+    {
+      "name": "vcpkg-cmake-config",
       "host": true
     }
   ],
   "features": {
+    "libprotoc": {
+      "description": "Build the libprotoc compiler library for target builds.",
+      "supports": "!uwp"
+    },
     "pyext": {
       "description": "Export pyext protobuf internals",
       "dependencies": [
