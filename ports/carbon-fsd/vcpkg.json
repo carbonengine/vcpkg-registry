@@ -1,0 +1,26 @@
+{
+  "name": "carbon-fsd",
+  "version": "2.1.0",
+  "description": "FSD serialization library and Python extension",
+  "dependencies": [
+    {
+      "name": "carbon-blue",
+      "version>=": "6.0.0"
+    },
+    {
+      "name": "ccp-debug-info",
+      "host": true,
+      "version>=": "1.0.2"
+    },
+    {
+      "name": "vcpkg-cmake",
+      "host": true,
+      "version>=": "2024-04-23"
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true,
+      "version>=": "2024-05-23"
+    }
+  ]
+}
