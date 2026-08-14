@@ -1,6 +1,6 @@
 {
   "name": "carbon-fsd",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "FSD serialization library and Python extension",
   "dependencies": [
     {

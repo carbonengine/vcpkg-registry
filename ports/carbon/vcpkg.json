@@ -1,6 +1,6 @@
 {
   "name": "carbon",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Fenris Creations' CARBON development platform.",
   "homepage": "https://www.fenris.com/carbon",
   "license": "MIT",
@@ -47,7 +47,7 @@
     },
     {
       "name": "carbon-fsd",
-      "version>=": "2.1.0"
+      "version>=": "2.1.1"
     },
     {
       "name": "carbon-geo2",
