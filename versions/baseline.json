@@ -33,7 +33,7 @@
       "port-version": 3
     },
     "carbon": {
-      "baseline": "1.1.1",
+      "baseline": "1.2.0",
       "port-version": 0
     },
     "carbon-audio": {
@@ -41,7 +41,7 @@
       "port-version": 0
     },
     "carbon-blue": {
-      "baseline": "6.0.0",
+      "baseline": "6.1.0",
       "port-version": 0
     },
     "carbon-blueexposure": {

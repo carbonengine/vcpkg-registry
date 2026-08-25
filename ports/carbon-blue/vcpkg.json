@@ -1,6 +1,6 @@
 {
   "name": "carbon-blue",
-  "version-semver": "6.0.0",
+  "version-semver": "6.1.0",
   "description": "Central library providing the embedded Python interpreter, game loop, resource-loading and other functions",
   "dependencies": [
     {
@@ -9,7 +9,7 @@
     },
     {
       "name": "carbon-core",
-      "version>=": "3.0.0"
+      "version>=": "3.1.0"
     },
     {
       "name": "carbon-io",

@@ -1,6 +1,6 @@
 {
   "name": "carbon",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Fenris Creations' CARBON development platform.",
   "homepage": "https://www.fenris.com/carbon",
   "license": "MIT",
@@ -8,7 +8,7 @@
   "dependencies": [
     {
       "name": "carbon-blue",
-      "version>=": "6.0.0"
+      "version>=": "6.1.0"
     },
     {
       "name": "carbon-blueexposure",
@@ -16,7 +16,7 @@
     },
     {
       "name": "carbon-core",
-      "version>=": "3.0.0"
+      "version>=": "3.1.0"
     },
     {
       "name": "carbon-d3dinfo",
@@ -104,7 +104,7 @@
     },
     {
       "name": "carbon-scheduler",
-      "version>=": "1.4.3"
+      "version>=": "1.4.4"
     },
     {
       "name": "carbon-spacemouse",
