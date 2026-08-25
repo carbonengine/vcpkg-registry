@@ -1,7 +1,7 @@
 vcpkg_from_git(
   OUT_SOURCE_PATH SOURCE_PATH
   URL git@github.com:carbonengine/spacemouse.git
-  REF df183797d2349dc3bcbdcca6fe81fde9a0bfe809
+  REF 26d1e7b32683c059bb86e8ded8aa8a9cf166149c
   HEAD_REF main
 )
 
