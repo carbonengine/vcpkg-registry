@@ -1,6 +1,6 @@
 {
   "name": "carbon-spacemouse",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Provides SpaceMouse integration for Carbon projects.",
   "homepage": "https://github.com/carbonengine/spacemouse",
   "license": "MIT",
