@@ -1,7 +1,6 @@
 {
   "name": "carbon-imagetools",
-  "version": "2.0.3",
-  "port-version": 1,
+  "version": "2.0.4",
   "description": "Provides Python bindings and C++ image processing utilities for Carbon projects.",
   "homepage": "https://github.com/carbonengine/imagetools",
   "license": "MIT",
