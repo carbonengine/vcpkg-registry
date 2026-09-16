@@ -1,12 +1,11 @@
 {
   "name": "carbon-d3dinfo",
-  "version": "2.0.2",
-  "port-version": 1,
+  "version": "2.0.3",
   "description": "Python-exposed library to detect DirectX capabilities of the PC",
   "dependencies": [
     {
       "name": "carbon-blue",
-      "version>=": "5.1.2"
+      "version>=": "6.2.0"
     },
     {
       "name": "ccp-debug-info",

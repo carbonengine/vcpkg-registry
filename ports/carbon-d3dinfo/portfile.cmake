@@ -1,7 +1,7 @@
 vcpkg_from_git(
   OUT_SOURCE_PATH SOURCE_PATH
   URL git@github.com:carbonengine/d3dinfo.git
-  REF 344637fc700c9cd2eb56fb95bb451c2f572948ee
+  REF e520bc826f45f933148edd4eae6c542c7cd4ca6b
   HEAD_REF main
 )
 
