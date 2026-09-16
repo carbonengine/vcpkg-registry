@@ -1,7 +1,6 @@
 {
   "name": "carbon-ime",
-  "version": "2.0.0",
-  "port-version": 1,
+  "version": "2.0.2",
   "description": "Provides native input method editor integration for Carbon projects.",
   "homepage": "https://github.com/carbonengine/ime",
   "license": "MIT",
@@ -9,7 +8,7 @@
   "dependencies": [
     {
       "name": "carbon-blue",
-      "version>=": "5.1.2"
+      "version>=": "6.2.0"
     },
     {
       "name": "ccp-debug-info",
