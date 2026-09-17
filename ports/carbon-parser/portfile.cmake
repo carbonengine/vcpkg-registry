@@ -1,7 +1,7 @@
 vcpkg_from_git(
   OUT_SOURCE_PATH SOURCE_PATH
   URL git@github.com:ccpshanghai/parser.git
-  REF 1ad0b204abc02c61c21eb167d3e8743f1e1fce38
+  REF 66f5bd8d7e5cbcf07365afc5006cad712c1c6cca
   HEAD_REF main
 )
 
