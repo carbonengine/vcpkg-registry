@@ -1,7 +1,7 @@
 vcpkg_from_git(
   OUT_SOURCE_PATH SOURCE_PATH
   URL git@github.com:carbonengine/mesh.git
-  REF 55062e54e84cefb649ff44350377cbb49a6fddcd
+  REF fa5ec2cb5004bd32805e7fd18bce7012d2e56855
   HEAD_REF main
 )
 vcpkg_from_git(
@@ -25,6 +25,17 @@ file(REMOVE_RECURSE "${SOURCE_PATH}/vendor/github.com/moltenVK")
 file(RENAME 
     "${MOLTEN_VK_SOURCE_PATH}" 
     "${SOURCE_PATH}/vendor/github.com/moltenVK"
+)
+vcpkg_from_git(
+  OUT_SOURCE_PATH FONT_AWESOME_SOURCE_PATH
+  URL git@github.com:FortAwesome/Font-Awesome.git
+  REF af620534bfc3c2d4cbefcfeec29603bbe7809e64
+  HEAD_REF main
+)
+file(REMOVE_RECURSE "${SOURCE_PATH}/vendor/github.com/FortAwesome/Font-Awesome")
+file(RENAME 
+    "${FONT_AWESOME_SOURCE_PATH}" 
+    "${SOURCE_PATH}/vendor/github.com/FortAwesome/Font-Awesome"
 )
 
 

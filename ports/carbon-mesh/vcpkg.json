@@ -1,6 +1,6 @@
 {
   "name": "carbon-mesh",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Library that handles serialization of 3D mesh, skeleton and animation data. It also provides basic animation runtime support.",
   "dependencies": [
     {
@@ -75,6 +75,10 @@
         {
           "name": "tinyfiledialogs",
           "version>=": "3.19.1"
+        },
+        {
+          "name": "tinygltf",
+          "version>=": "3.0.0#1"
         },
         {
           "name": "vulkan",
