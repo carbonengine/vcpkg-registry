@@ -12,6 +12,7 @@ if (NOT _CCP_TOOLCHAIN_FILE_LOADED)
     set (CMAKE_XCODE_GENERATE_SCHEME ON CACHE STRING "")
     set (CMAKE_INTERPROCEDURAL_OPTIMIZATION ON CACHE STRING "")
     set (CMAKE_OSX_DEPLOYMENT_TARGET 11.0 CACHE STRING "")
+    set (CMAKE_CXX_COMPILER_ID AppleClang)
 
     #[[
         - `CCP_PLATFORM` indicates the operating system a binary was built for
@@ -49,8 +50,8 @@ if (NOT _CCP_TOOLCHAIN_FILE_LOADED)
     add_compile_options(-g)
 
     if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS "13")
-        set(MATH_OPTIMIZE_FLAG -ffast-math -fhonor-infinities -fhonor-nans)
+        set(MATH_OPTIMIZE_FLAG -ffast-math -fhonor-infinities -fhonor-nans -fsigned-zeros)
     else()
-        set(MATH_OPTIMIZE_FLAG -ffast-math -ffp-model=fast -fhonor-infinities -fhonor-nans)
+        set(MATH_OPTIMIZE_FLAG -ffast-math -ffp-model=fast -fhonor-infinities -fhonor-nans -fsigned-zeros)
     endif()
 endif ()

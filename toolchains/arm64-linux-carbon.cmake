@@ -11,6 +11,7 @@ if (NOT _CCP_TOOLCHAIN_FILE_LOADED)
     set (CMAKE_CXX_VISIBILITY_PRESET hidden CACHE STRING "")
     set (CMAKE_OBJCXX_VISIBILITY_PRESET hidden CACHE STRING "")
     set (CMAKE_INTERPROCEDURAL_OPTIMIZATION ON CACHE STRING "")
+    set (CMAKE_CXX_COMPILER_ID GNU)
 
     #[[
         - `CCP_PLATFORM` indicates the operating system a binary was built for
@@ -36,5 +37,15 @@ if (NOT _CCP_TOOLCHAIN_FILE_LOADED)
     add_compile_options(-g)
 
     # Enable fast, lossy math optimization while disabling optimizations for NaN/+-inf floating points
-    set(MATH_OPTIMIZE_FLAG -ffast-math -fno-finite-math-only)
+    # for details of ffast-math on AppleClang and GCC, consult the docs:
+    # Clang https://clang.llvm.org/docs/UsersManual.html#cmdoption-ffast-math
+    # GCC   https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html
+
+    # Here, we attempt to match arm64-osx-carbon flags for macOS with the equivalent gcc flags:
+    # AppleClang: -fhonor-infinities -fhonor-nans
+    # GCC: -fno-finite-math-only
+
+    #AppleClang: -ffp-model=fast
+    # GCC: -funsafe-math-optimizations -fno-math-errno -ffp-contract=fast
+    set(MATH_OPTIMIZE_FLAG -ffast-math -fno-finite-math-only -fsigned-zeros -ffp-contract=fast -fno-math-errno)
 endif ()
