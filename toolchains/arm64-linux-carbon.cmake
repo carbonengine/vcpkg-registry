@@ -11,7 +11,6 @@ if (NOT _CCP_TOOLCHAIN_FILE_LOADED)
     set (CMAKE_CXX_VISIBILITY_PRESET hidden CACHE STRING "")
     set (CMAKE_OBJCXX_VISIBILITY_PRESET hidden CACHE STRING "")
     set (CMAKE_INTERPROCEDURAL_OPTIMIZATION ON CACHE STRING "")
-    set (CMAKE_CXX_COMPILER_ID GNU)
 
     #[[
         - `CCP_PLATFORM` indicates the operating system a binary was built for
