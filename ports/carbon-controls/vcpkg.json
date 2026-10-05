@@ -3,13 +3,6 @@
   "version": "1.0.0",
   "description": "Carbon controls library",
   "dependencies": [
-    {"name": "python3",
-      "version>=": "3.12.9#1"
-    },
-    {
-      "name": "carbon-core",
-      "version>=": "3.0.0"
-    },
     {
       "name": "carbon-blue",
       "version>=": "6.2.0"
@@ -19,20 +12,26 @@
       "version>=": "2.2.0"
     },
     {
-      "name": "gameinput",
-      "version>=": "3.1.26100.6879",
-      "platform": "windows"
-    },
-    {
-      "name": "gtest"
+      "name": "carbon-core",
+      "version>=": "3.0.0"
     },
     {
       "name": "carbon-exefile",
-      "version>=": "4.1.1",
-      "host": true
+      "host": true,
+      "version>=": "4.1.1"
+    },
+    {
+      "name": "gameinput",
+      "platform": "windows",
+      "version>=": "3.1.26100.6879"
+    },
+    "gtest",
+    {
+      "name": "python3",
+      "version>=": "3.12.9#1"
     }
   ],
-  "overrides": [  
+  "overrides": [
     {
       "name": "openssl",
       "version": "3.5.0#1"
