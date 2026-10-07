@@ -1,7 +1,7 @@
 {
   "name": "carbon-controls",
   "version": "1.0.0",
-  "description": "Carbon controls library",
+  "description": "Provides game controller handling and mapping functionality",
   "dependencies": [
     {
       "name": "carbon-blue",
@@ -29,12 +29,14 @@
     {
       "name": "python3",
       "version>=": "3.12.9#1"
-    }
-  ],
-  "overrides": [
+    },
     {
-      "name": "openssl",
-      "version": "3.5.0#1"
+      "name": "vcpkg-cmake",
+      "host": true
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true
     }
   ]
 }
