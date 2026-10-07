@@ -161,7 +161,7 @@
       "port-version": 0
     },
     "carbon-videoplayer": {
-      "baseline": "2.0.3",
+      "baseline": "3.0.0",
       "port-version": 0
     },
     "ccp-debug-info": {
