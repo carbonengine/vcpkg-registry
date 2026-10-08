@@ -5,9 +5,6 @@
   "homepage": "https://github.com/carbonengine/core",
   "license": "MIT",
   "supports": "(windows & x64) | osx",
-  "default-features": [
-    "telemetry"
-  ],
   "dependencies": [
     {
       "name": "ccp-debug-info",
@@ -23,7 +20,20 @@
       "host": true
     }
   ],
+  "default-features": [
+    "telemetry"
+  ],
   "features": {
+    "docs": {
+      "description": "Build Doxygen & Sphinx documentation",
+      "dependencies": [
+        {
+          "name": "python3",
+          "host": true,
+          "version>=": "3.12.9#1"
+        }
+      ]
+    },
     "telemetry": {
       "description": "Enable telemetry through Tracy",
       "dependencies": [
@@ -39,16 +49,6 @@
             "on-demand"
           ],
           "version>=": "0.14.1"
-        }
-      ]
-    },
-    "docs": {
-      "description": "Build Doxygen & Sphinx documentation",
-      "dependencies": [
-        {
-          "name": "python3",
-          "host": true,
-          "version>=": "3.12.9#1"
         }
       ]
     }
