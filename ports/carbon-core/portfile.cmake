@@ -1,13 +1,14 @@
 vcpkg_from_git(
   OUT_SOURCE_PATH SOURCE_PATH
   URL https://github.com/carbonengine/core.git
-  REF e49c14a0b4a30d656768fa1e0ff559b3c16a9817
+  REF ffba58cf756a94053a314f0dc1ec7cdb54a26b1a
   HEAD_REF main
 )
 
 vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
     FEATURES
-      documentation BUILD_DOCUMENTATION
+      telemetry   WITH_TELEMETRY
+      docs        BUILD_DOCUMENTATION
 )
 
 vcpkg_cmake_configure(

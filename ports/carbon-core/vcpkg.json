@@ -1,6 +1,6 @@
 {
   "name": "carbon-core",
-  "version-semver": "3.1.0",
+  "version-semver": "3.2.0",
   "description": "Provides generic low-level functionality and cross-platform abstractions for system calls",
   "homepage": "https://github.com/carbonengine/core",
   "license": "MIT",
@@ -12,18 +12,6 @@
       "version>=": "1.0.1"
     },
     {
-      "name": "tracy",
-      "features": [
-        "delayed-init",
-        "fibers",
-        "manual-lifetime",
-        "no-callstack",
-        "no-crash-handler",
-        "on-demand"
-      ],
-      "version>=": "0.13.1#1"
-    },
-    {
       "name": "vcpkg-cmake",
       "host": true
     },
@@ -32,14 +20,35 @@
       "host": true
     }
   ],
+  "default-features": [
+    "telemetry"
+  ],
   "features": {
-    "documentation": {
+    "docs": {
       "description": "Build Doxygen & Sphinx documentation",
       "dependencies": [
         {
           "name": "python3",
           "host": true,
           "version>=": "3.12.9#1"
+        }
+      ]
+    },
+    "telemetry": {
+      "description": "Enable telemetry through Tracy",
+      "dependencies": [
+        {
+          "name": "tracy",
+          "features": [
+            "cli-tools",
+            "fibers",
+            "gui-tools",
+            "manual-lifetime",
+            "no-callstack",
+            "no-crash-handler",
+            "on-demand"
+          ],
+          "version>=": "0.14.1"
         }
       ]
     }
