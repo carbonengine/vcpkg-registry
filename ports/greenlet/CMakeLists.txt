@@ -48,7 +48,7 @@ install(FILES src/greenlet/__init__.py DESTINATION bin/python/greenlet/)
 
 if(WIN32)
     install(FILES $<TARGET_FILE_DIR:_greenlet>/_greenlet.pyd DESTINATION bin/)
-elseif(APPLE)
+else()
     install(FILES $<TARGET_FILE_NAME:_greenlet>  DESTINATION lib/)
 endif()
 install(FILES greenletConfig.cmake DESTINATION ${CMAKE_INSTALL_PREFIX}/share/greenlet/)
