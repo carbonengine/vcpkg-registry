@@ -1,0 +1,7 @@
+{
+  "name": "msodbcsql",
+  "version": "18.7.1",
+  "description": "Microsoft ODBC Driver for SQL Server is a single dynamic-link library (DLL) containing run-time support for applications using native-code APIs to connect to SQL Server",
+  "homepage": "https://learn.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver17",
+  "supports": "(windows & x64) | osx"
+}
