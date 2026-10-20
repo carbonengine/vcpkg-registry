@@ -1,6 +1,6 @@
 {
   "name": "carbon-trinity",
-  "version": "7.0.1",
+  "version": "8.0.0",
   "description": "Graphics engine for the carbon game engine",
   "dependencies": [
     {
@@ -45,7 +45,7 @@
     },
     {
       "name": "carbon-trinityaudioapi",
-      "version>=": "2.0.3"
+      "version>=": "3.1.0"
     },
     {
       "name": "ccp-debug-info",
@@ -96,17 +96,39 @@
     {
       "name": "zlib-ng",
       "version>=": "2.2.5"
+    },
+    {
+      "name": "carbon-exefile",
+      "version>=": "4.1.1",
+      "host": true
     }
   ],
   "features": {
+    "shader-compiler": {
+      "description": "Shader compiler for carbon-trinity",
+      "supports": "(windows & x64) | osx",
+      "dependencies": [
+        {
+          "name": "re2c",
+          "version>=": "2.2",
+          "host": true
+        },
+        {
+          "name": "lemon-parser-generator",
+          "version>=": "3.39.3#1",
+          "host": true
+        },
+        {
+          "name": "directx-dxc",
+          "version>=": "2023-03-01#2",
+          "platform": "windows & x64"
+        }
+      ]
+    },
     "dx11": {
       "description": "Create DirectX 11 targets",
       "supports": "windows & x64",
       "dependencies": [
-        {
-          "name": "amd-fidelityfx-fsr",
-          "version>=": "1.0.2"
-        },
         {
           "name": "directx-dxc",
           "version>=": "2023-03-01#2"
@@ -116,17 +138,21 @@
           "version>=": "10.1"
         },
         {
+          "name": "amd-fidelityfx-fsr",
+          "version>=": "1.0.2"
+        },
+        {
           "name": "nvidia-aftermath",
           "version>=": "2021.1.0"
         },
         {
           "name": "nvidia-streamline",
+          "version>=": "2.8.0",
           "features": [
             "dlss-fg",
             "dlss-sr",
             "nis"
-          ],
-          "version>=": "2.8.0"
+          ]
         }
       ]
     },
@@ -135,14 +161,6 @@
       "supports": "windows & x64",
       "dependencies": [
         {
-          "name": "amd-fidelityfx",
-          "version>=": "1.1.4"
-        },
-        {
-          "name": "amd-fidelityfx-fsr",
-          "version>=": "1.0.2"
-        },
-        {
           "name": "directx-dxc",
           "version>=": "2023-03-01#2"
         },
@@ -151,8 +169,12 @@
           "version>=": "10.1"
         },
         {
-          "name": "intel-xess",
-          "version>=": "2.0.1"
+          "name": "amd-fidelityfx-fsr",
+          "version>=": "1.0.2"
+        },
+        {
+          "name": "amd-fidelityfx",
+          "version>=": "1.1.4"
         },
         {
           "name": "nvidia-aftermath",
@@ -160,13 +182,17 @@
         },
         {
           "name": "nvidia-streamline",
+          "version>=": "2.8.0",
           "features": [
             "dlss-fg",
             "dlss-sr",
             "nis",
             "reflex"
-          ],
-          "version>=": "2.8.0"
+          ]
+        },
+        {
+          "name": "intel-xess",
+          "version>=": "2.0.1"
         }
       ]
     },
@@ -177,27 +203,6 @@
         {
           "name": "amd-fidelityfx-fsr",
           "version>=": "1.0.2"
-        }
-      ]
-    },
-    "shader-compiler": {
-      "description": "Shader compiler for carbon-trinity",
-      "supports": "(windows & x64) | osx",
-      "dependencies": [
-        {
-          "name": "directx-dxc",
-          "platform": "windows & x64",
-          "version>=": "2023-03-01#2"
-        },
-        {
-          "name": "lemon-parser-generator",
-          "host": true,
-          "version>=": "3.39.3#1"
-        },
-        {
-          "name": "re2c",
-          "host": true,
-          "version>=": "2.2"
         }
       ]
     },
