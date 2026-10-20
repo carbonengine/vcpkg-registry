@@ -153,7 +153,7 @@
       "port-version": 0
     },
     "carbon-trinity": {
-      "baseline": "7.0.1",
+      "baseline": "8.0.0",
       "port-version": 0
     },
     "carbon-trinityaudioapi": {
