@@ -1,6 +1,6 @@
 {
   "name": "carbon-trinity",
-  "version": "7.0.1",
+  "version": "8.0.0",
   "description": "Graphics engine for the carbon game engine",
   "dependencies": [
     {
@@ -24,6 +24,11 @@
       "version>=": "3.1.1#1"
     },
     {
+      "name": "carbon-exefile",
+      "host": true,
+      "version>=": "4.1.1"
+    },
+    {
       "name": "carbon-imageio",
       "version>=": "2.0.6#1"
     },
@@ -45,7 +50,7 @@
     },
     {
       "name": "carbon-trinityaudioapi",
-      "version>=": "2.0.3"
+      "version>=": "3.1.0"
     },
     {
       "name": "ccp-debug-info",
