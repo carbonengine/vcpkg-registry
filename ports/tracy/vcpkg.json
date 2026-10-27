@@ -76,13 +76,7 @@
         "ppqsort",
         "pugixml",
         "tidy-html5",
-        {
-          "name": "usearch",
-          "features": [
-            "fp16"
-          ],
-          "version>=": "2.25.3"
-        },
+        "usearch",
         "zstd"
       ]
     },
