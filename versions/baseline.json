@@ -8,10 +8,6 @@
       "baseline": "10.5.10",
       "port-version": 0
     },
-    "abseil": {
-      "baseline": "20210324.2",
-      "port-version": 0
-    },
     "amd-fidelityfx": {
       "baseline": "1.1.4",
       "port-version": 0
@@ -226,10 +222,6 @@
     },
     "nvidia-streamline": {
       "baseline": "2.8.0",
-      "port-version": 0
-    },
-    "openssl": {
-      "baseline": "1.1.1k",
       "port-version": 0
     },
     "openvdb": {
