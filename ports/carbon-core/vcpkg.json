@@ -41,19 +41,19 @@
         {
           "name": "tracy",
           "features": [
-            "fibers",
-            "manual-lifetime",
-            "no-callstack",
-            "no-crash-handler",
-            "on-demand",
-	    {
+            {
               "name": "cli-tools",
               "platform": "!linux"
             },
+            "fibers",
             {
               "name": "gui-tools",
               "platform": "!linux"
             },
+            "manual-lifetime",
+            "no-callstack",
+            "no-crash-handler",
+            "on-demand",
             {
               "name": "timer-fallback",
               "platform": "linux"
