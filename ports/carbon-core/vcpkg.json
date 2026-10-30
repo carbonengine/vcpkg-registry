@@ -1,6 +1,7 @@
 {
   "name": "carbon-core",
   "version-semver": "3.3.0",
+  "port-version": 1,
   "description": "Provides generic low-level functionality and cross-platform abstractions for system calls",
   "homepage": "https://github.com/carbonengine/core",
   "license": "MIT",
@@ -40,13 +41,23 @@
         {
           "name": "tracy",
           "features": [
-            "cli-tools",
+            {
+              "name": "cli-tools",
+              "platform": "!linux"
+            },
             "fibers",
-            "gui-tools",
+            {
+              "name": "gui-tools",
+              "platform": "!linux"
+            },
             "manual-lifetime",
             "no-callstack",
             "no-crash-handler",
-            "on-demand"
+            "on-demand",
+            {
+              "name": "timer-fallback",
+              "platform": "linux"
+            }
           ],
           "version>=": "0.14.1"
         }
