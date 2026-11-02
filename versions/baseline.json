@@ -182,7 +182,7 @@
     },
     "greenlet": {
       "baseline": "3.0.3",
-      "port-version": 2
+      "port-version": 3
     },
     "intel-xess": {
       "baseline": "2.0.1",
