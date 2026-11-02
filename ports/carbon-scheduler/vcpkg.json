@@ -1,14 +1,14 @@
 {
   "name": "carbon-scheduler",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Provides channels and a scheduler for Greenlet coroutines.",
   "homepage": "https://github.com/carbonengine/scheduler",
   "license": "MIT",
-  "supports": "(windows & x64) | osx",
+  "supports": "(windows & x64) | osx | linux",
   "dependencies": [
     {
       "name": "carbon-core",
-      "version>=": "3.1.0"
+      "version>=": "3.3.0#1"
     },
     {
       "name": "ccp-debug-info",
@@ -17,11 +17,11 @@
     },
     {
       "name": "greenlet",
-      "version>=": "3.0.3#1"
+      "version>=": "3.0.3#3"
     },
     {
       "name": "python3",
-      "version>=": "3.12.9#1"
+      "version>=": "3.12.16"
     },
     {
       "name": "vcpkg-cmake",
