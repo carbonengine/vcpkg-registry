@@ -1,7 +1,7 @@
 {
   "name": "greenlet",
   "version": "3.0.3",
-  "port-version": 2,
+  "port-version": 3,
   "description": "Greenlets are lightweight coroutines for in-process concurrent programming.",
   "homepage": "https://github.com/python-greenlet/greenlet",
   "license": "PSF-2.0",
