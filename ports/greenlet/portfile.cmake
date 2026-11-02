@@ -7,7 +7,7 @@ set(PATCHES
 
 vcpkg_from_git(
   OUT_SOURCE_PATH SOURCE_PATH
-  URL git@github.com:ccpgames/greenlet.git
+  URL https://github.com/carbonengine/greenlet.git
   REF ea4bc2776c75429a577e539389fee40ad9e46707 # TAG 3.0.3
   HEAD_REF master
   PATCHES ${PATCHES}
