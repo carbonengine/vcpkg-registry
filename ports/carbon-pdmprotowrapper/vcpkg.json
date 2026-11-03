@@ -1,12 +1,11 @@
 {
   "name": "carbon-pdmprotowrapper",
-  "version": "3.0.0",
-  "port-version": 1,
+  "version": "3.1.0",
   "description": "C++ library to wrap PDM output in protobuf",
   "dependencies": [
     {
       "name": "carbon-pdm",
-      "version>=": "2.1.7"
+      "version>=": "2.3.0"
     },
     {
       "name": "ccp-debug-info",
