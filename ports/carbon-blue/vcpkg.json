@@ -1,6 +1,6 @@
 {
   "name": "carbon-blue",
-  "version-semver": "6.3.0",
+  "version-semver": "6.3.1",
   "description": "Central library providing the embedded Python interpreter, game loop, resource-loading and other functions",
   "dependencies": [
     {
@@ -30,13 +30,7 @@
     },
     {
       "name": "curl",
-      "features": [
-        {
-          "name": "schannel",
-          "platform": "windows"
-        }
-      ],
-      "version>=": "7.78.0"
+      "version>=": "8.23.0"
     },
     {
       "name": "libyaml",
@@ -44,11 +38,11 @@
     },
     {
       "name": "openssl",
-      "version>=": "1.1.1k"
+      "version>=": "3.6.5#2"
     },
     {
       "name": "python3",
-      "version>=": "3.12.9#2"
+      "version>=": "3.12.16"
     },
     {
       "name": "vcpkg-cmake",
