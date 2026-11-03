@@ -37,7 +37,7 @@
       "port-version": 0
     },
     "carbon-blue": {
-      "baseline": "6.3.0",
+      "baseline": "6.3.1",
       "port-version": 0
     },
     "carbon-blueexposure": {
@@ -133,8 +133,8 @@
       "port-version": 1
     },
     "carbon-prometheus": {
-      "baseline": "4.1.2",
-      "port-version": 1
+      "baseline": "4.1.3",
+      "port-version": 0
     },
     "carbon-resources": {
       "baseline": "5.0.0",

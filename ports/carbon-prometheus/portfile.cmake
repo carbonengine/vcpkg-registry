@@ -1,7 +1,7 @@
 vcpkg_from_git(
   OUT_SOURCE_PATH SOURCE_PATH
   URL git@github.com:carbonengine/prometheus.git
-  REF 386d1ef66e02459153039ebd13fe7f40da80deb0
+  REF 145ff57972e3c23c2faf43b949da5efe93f303ad
   HEAD_REF main
 )
 
