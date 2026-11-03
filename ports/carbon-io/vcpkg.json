@@ -1,15 +1,15 @@
 {
   "name": "carbon-io",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "carbon-io is a drop-in replacement for the python312 socket module",
   "dependencies": [
     {
       "name": "carbon-core",
-      "version>=": "3.3.0"
+      "version>=": "3.3.0#1"
     },
     {
       "name": "carbon-scheduler",
-      "version>=": "1.4.0"
+      "version>=": "1.6.0"
     },
     {
       "name": "ccp-debug-info",
