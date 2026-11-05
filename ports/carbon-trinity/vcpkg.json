@@ -1,6 +1,7 @@
 {
   "name": "carbon-trinity",
   "version": "7.0.1",
+  "port-version": 1,
   "description": "Graphics engine for the carbon game engine",
   "dependencies": [
     {
@@ -109,7 +110,7 @@
         },
         {
           "name": "directx-dxc",
-          "version>=": "2023-03-01#2"
+          "version>=": "2026-05-27"
         },
         {
           "name": "fxc",
@@ -144,7 +145,7 @@
         },
         {
           "name": "directx-dxc",
-          "version>=": "2023-03-01#2"
+          "version>=": "2026-05-27"
         },
         {
           "name": "fxc",
@@ -187,7 +188,7 @@
         {
           "name": "directx-dxc",
           "platform": "windows & x64",
-          "version>=": "2023-03-01#2"
+          "version>=": "2026-05-27"
         },
         {
           "name": "lemon-parser-generator",
