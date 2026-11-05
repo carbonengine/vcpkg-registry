@@ -168,6 +168,10 @@
       "baseline": "2021-04-14",
       "port-version": 1
     },
+    "directx-dxc": {
+      "baseline": "2026-05-27",
+      "port-version": 0
+    },
     "fxc": {
       "baseline": "10.1",
       "port-version": 0
