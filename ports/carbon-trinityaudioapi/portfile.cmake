@@ -1,7 +1,7 @@
 vcpkg_from_git(
   OUT_SOURCE_PATH SOURCE_PATH
   URL git@github.com:carbonengine/trinityaudioapi.git
-  REF 8b872f46cdfbb56541885bca683b7b87c76c5b50 #v3.2.0
+  REF ff75b8cd6d545ec6349fb76d4f13e403f18005bf #v99.99.99
   HEAD_REF main
 )
 

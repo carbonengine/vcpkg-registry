@@ -1,6 +1,6 @@
 {
   "name": "carbon-trinityaudioapi",
-  "version": "3.2.0",
+  "version": "99.99.99",
   "description": "An interface between carbon-audio and carbon-trinity.",
   "dependencies": [
     {
