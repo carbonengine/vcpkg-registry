@@ -1,6 +1,6 @@
 {
   "name": "carbon-db",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "Python exposure for SQL DB Driver",
   "supports": "windows & x64",
   "dependencies": [
