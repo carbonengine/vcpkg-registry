@@ -110,7 +110,7 @@
     },
     "carbon-math": {
       "baseline": "1.2.3",
-      "port-version": 0
+      "port-version": 1
     },
     "carbon-mesh": {
       "baseline": "1.1.1",
