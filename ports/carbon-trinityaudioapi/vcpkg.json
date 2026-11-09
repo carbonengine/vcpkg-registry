@@ -1,12 +1,12 @@
 {
   "name": "carbon-trinityaudioapi",
-  "version": "3.2.0",
+  "version": "99.99.96",
   "description": "An interface between carbon-audio and carbon-trinity.",
   "dependencies": [
     {
       "name": "vcpkg-cmake",
       "host": true,
-      "version>=": "2024-04-23"
+      "version>=": "2024-06-01"
     },
     {
       "name": "vcpkg-cmake-config",
