@@ -1,6 +1,6 @@
 {
   "name": "carbon",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Fenris Creations' CARBON development platform.",
   "homepage": "https://www.fenris.com/carbon",
   "license": "MIT",
@@ -8,7 +8,7 @@
   "dependencies": [
     {
       "name": "carbon-audio",
-      "version>=": "10.0.0"
+      "version>=": "10.2.0"
     },
     {
       "name": "carbon-blue",
@@ -30,7 +30,7 @@
     {
       "name": "carbon-db",
       "platform": "windows & x64",
-      "version>=": "2.4.0"
+      "version>=": "2.4.1"
     },
     {
       "name": "carbon-destiny",
@@ -139,7 +139,7 @@
         "shader-compiler",
         "with-granny"
       ],
-      "version>=": "7.0.1"
+      "version>=": "8.0.0"
     },
     {
       "name": "carbon-trinityaudioapi",
