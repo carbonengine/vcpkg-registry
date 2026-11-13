@@ -133,7 +133,7 @@
       "port-version": 0
     },
     "carbon-prometheus": {
-      "baseline": "4.1.3",
+      "baseline": "4.2.0",
       "port-version": 0
     },
     "carbon-resources": {
