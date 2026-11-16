@@ -49,8 +49,8 @@
       "port-version": 0
     },
     "carbon-core": {
-      "baseline": "3.3.0",
-      "port-version": 1
+      "baseline": "3.3.1",
+      "port-version": 0
     },
     "carbon-d3dinfo": {
       "baseline": "2.0.3",
