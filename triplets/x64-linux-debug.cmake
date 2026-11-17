@@ -6,6 +6,8 @@ set(VCPKG_LIBRARY_LINKAGE dynamic)
 set(VCPKG_BUILD_TYPE "release")
 set(VCPKG_CMAKE_SYSTEM_NAME Linux)
 
+set(VCPKG_CMAKE_CONFIGURE_OPTIONS -DCMAKE_PLATFORM_NO_VERSIONED_SONAME:STRING=ON)
+
 # Changes in vcpkg-tool (https://github.com/microsoft/vcpkg-tool/pull/1931) removed the ability to access the VCPKG_ROOT
 # environment variable from inside the VCPKG build environment while VCPKG_LOAD_VCVARS_ENV is set to ON.
 # For consistency, we have changed this for both windows & macos.
