@@ -6,7 +6,7 @@ set(VCPKG_BUILD_TYPE "release")
 
 set(VCPKG_CMAKE_SYSTEM_NAME Darwin)
 set(VCPKG_OSX_ARCHITECTURES arm64)
-set(VCPKG_OSX_DEPLOYMENT_TARGET 12.0)
+set(VCPKG_OSX_DEPLOYMENT_TARGET 13.0)
 
 # Changes in vcpkg-tool (https://github.com/microsoft/vcpkg-tool/pull/1931) removed the ability to access the VCPKG_ROOT
 # environment variable from inside the VCPKG build environment while VCPKG_LOAD_VCVARS_ENV is set to ON.
