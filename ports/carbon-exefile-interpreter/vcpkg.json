@@ -1,23 +1,22 @@
 {
   "name": "carbon-exefile-interpreter",
-  "version": "1.1.1",
-  "port-version": 1,
+  "version": "1.2.0",
   "description": "a python host port that instruments the carbon-exefile and carbon-blue packages",
   "dependencies": [
     {
       "name": "carbon-blue",
       "host": true,
-      "version>=": "5.1.2"
+      "version>=": "6.4.0"
     },
     {
       "name": "carbon-exefile",
       "host": true,
-      "version>=": "4.1.1"
+      "version>=": "4.3.0#1"
     },
     {
       "name": "python3",
       "host": true,
-      "version>=": "3.12.9#1"
+      "version>=": "3.12.16"
     }
   ]
 }
