@@ -18,8 +18,8 @@
     },
     {
       "name": "icu",
-      "version>=": "79.1",
-      "platform": "linux"
+      "platform": "linux",
+      "version>=": "79.1"
     },
     {
       "name": "python3",
