@@ -1,8 +1,8 @@
 vcpkg_from_git(
   OUT_SOURCE_PATH SOURCE_PATH
   URL git@github.com:carbonengine/localization.git
-  REF 05da2558de31656a9fbac1c85712646f5d80282c
-  HEAD_REF main
+  REF 9502c3eb9139436c3e8797aa1ededad1c951f49b
+  HEAD_REF feature/linux
 )
 
 vcpkg_cmake_configure(
