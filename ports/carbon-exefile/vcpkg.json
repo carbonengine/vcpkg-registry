@@ -1,7 +1,9 @@
 {
   "name": "carbon-exefile",
   "version": "4.3.0",
+  "port-version": 1,
   "description": "Elements used to build the final exefile executable",
+  "supports": "(windows & x64) | osx | linux",
   "dependencies": [
     {
       "name": "carbon-core",
