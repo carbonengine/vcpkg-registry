@@ -36,7 +36,9 @@ ccp_externalize_apple_debuginfo()
 set(EXEFILE_TOOL exefile)
 
 if (DEFINED CARBON_BUILD_TYPE AND NOT CARBON_BUILD_TYPE MATCHES "Release")
-  set(EXEFILE_TOOL ${EXEFILE_TOOL}_${CARBON_BUILD_TYPE})
+  # exefile's per-config postfixes are lower case (e.g. exefile_debug), which matters on case-sensitive file systems
+  string(TOLOWER "${CARBON_BUILD_TYPE}" CARBON_BUILD_TYPE_LOWER)
+  set(EXEFILE_TOOL ${EXEFILE_TOOL}_${CARBON_BUILD_TYPE_LOWER})
 endif()
 
 vcpkg_copy_tools(
