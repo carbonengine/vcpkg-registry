@@ -1,8 +1,8 @@
 vcpkg_from_git(
   OUT_SOURCE_PATH SOURCE_PATH
   URL git@github.com:carbonengine/fsd.git
-  REF ef95e9b3fa1934b7eae83b36e0579b1a33b1622f
-  HEAD_REF main
+  REF d7b430ab66e2571aba841d1468dff000aaf419ef
+  HEAD_REF feature/linux
 )
 
 vcpkg_cmake_configure(
