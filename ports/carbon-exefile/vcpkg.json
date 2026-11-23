@@ -14,7 +14,7 @@
     },
     {
       "name": "crashpad",
-      "version>=": "2026-07-02#0"
+      "version>=": "2026-07-02"
     },
     {
       "name": "python3",
