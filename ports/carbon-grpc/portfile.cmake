@@ -1,7 +1,7 @@
 vcpkg_from_git(
   OUT_SOURCE_PATH SOURCE_PATH
   URL https://github.com/carbonengine/grpc
-  REF ae5fc8bc88f389c1a452d10268ef4e4c246bc287
+  REF c4c13f56d89c97d8ec8e466e264d8fdb92e279ba
   HEAD_REF main
 )
 

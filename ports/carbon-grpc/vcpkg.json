@@ -1,6 +1,6 @@
 {
   "name": "carbon-grpc",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Provides base functionality for project specific gRPC modules.",
   "supports": "(windows & x64) | osx | linux",
   "dependencies": [
