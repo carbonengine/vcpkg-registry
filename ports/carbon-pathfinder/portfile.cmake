@@ -1,8 +1,8 @@
 vcpkg_from_git(
   OUT_SOURCE_PATH SOURCE_PATH
   URL git@github.com:carbonengine/pathfinder.git
-  REF 00f40154719a0705e673404d84ffc52e78a478d1
-  HEAD_REF main
+  REF e7ede215673ab42ed8128c997727b4dd123a6cf9
+  HEAD_REF feature/linux
 )
 
 vcpkg_cmake_configure(
