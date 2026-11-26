@@ -86,7 +86,7 @@
     },
     "carbon-grpc": {
       "baseline": "1.2.1",
-      "port-version": 0
+      "port-version": 1
     },
     "carbon-imageio": {
       "baseline": "2.0.6",
