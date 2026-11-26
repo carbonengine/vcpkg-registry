@@ -1,6 +1,7 @@
 {
   "name": "carbon-pdm",
   "version": "2.3.0",
+  "port-version": 1,
   "description": "Carbon platform detection module",
   "dependencies": [
     {
