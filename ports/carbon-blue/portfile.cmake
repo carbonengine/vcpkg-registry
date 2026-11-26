@@ -1,7 +1,7 @@
 vcpkg_from_git(
   OUT_SOURCE_PATH SOURCE_PATH
   URL https://github.com/ccpcookies/blue.git
-  REF b9cb41233b2041df75e58a4344f5f4c12320cb53
+  REF f2cb70ab31b5a83a89bc8ee3563049a1596e18c6
   HEAD_REF linux
 )
 
