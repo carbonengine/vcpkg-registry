@@ -1,0 +1,41 @@
+{
+  "name": "carbon-odbc",
+  "version": "0.1.1",
+  "description": "Module for tasklet blocking stored procedure execution.",
+  "homepage": "https://github.com/carbonengine/odbc",
+  "license": "MIT",
+  "supports": "(windows & x64) | osx | linux",
+  "dependencies": [
+    {
+      "name": "carbon-blue",
+      "version>=": "6.4.1"
+    },
+    {
+      "name": "carbon-core",
+      "version>=": "3.3.1"
+    },
+    {
+      "name": "ccp-debug-info",
+      "host": true,
+      "version>=": "1.0.1"
+    },
+    {
+      "name": "libuv",
+      "version>=": "1.53.0"
+    },
+    {
+      "name": "msodbcsql",
+      "platform": "osx | windows",
+      "version>=": "18.7.1"
+    },
+    {
+      "name": "unixodbc",
+      "platform": "osx",
+      "version>=": "2.3.14"
+    },
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    }
+  ]
+}
