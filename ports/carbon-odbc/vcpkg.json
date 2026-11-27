@@ -1,6 +1,6 @@
 {
   "name": "carbon-odbc",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Module for tasklet blocking stored procedure execution.",
   "homepage": "https://github.com/carbonengine/odbc",
   "license": "MIT",
@@ -30,7 +30,7 @@
     },
     {
       "name": "unixodbc",
-      "platform": "osx",
+      "platform": "osx | linux",
       "version>=": "2.3.14"
     },
     {
